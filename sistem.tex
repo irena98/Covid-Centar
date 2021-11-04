@@ -41,7 +41,66 @@ Irena Vasiljević 1018/2021
 
 \subsection{Kovid propusnice}
 
+U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku je opisan slučaj upotrebe podnošenja zahteva i izdavanja kovid propusnice.
+
 \subsubsection{Slučaj upotrebe: Izdavanje kovid propusnice}
+
+%Prvih 5 tacaka je obavezno, ostale nisu - navesti potrebne
+%Ne bi bilo loše da, ako se dodaje neki dijagram, stoji opis uz njega i da se negde u tekstu onda reveriše na tu sliku
+
+\begin{itemize}
+    \item \textbf{Kratak opis:} Korisnik bira opciju za podnošenje zahteva za kovid propusnicu. Sistem proverava podatke, izdaje propusnicu i vraća odgovarajuću poruku.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Korisnik - želi brzo da dobije kovid propusnicu uz minimalan broj koraka
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan. Korisnik je registrovan i ima pristup internetu.
+    \item \textbf{Postuslovi:} Korisnik je dobio kovid propusnicu.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+            \item Korisnik otvara stranicu za prijavu.
+            \item Sistem prikazuje formular za prijavu.
+            \item Korisnik unosi odgovarajuće podatke.
+            \item Korisnik potvrđuje unos.
+            \item Sistem vrši validaciju podataka.
+            \item Korisnik otvara stranicu za podnošenje zahteva za izdavanje propusnice.
+            \item Sistem prikazuje tri moguće opcije:
+                \begin{itemize}
+                    \item Izdavanje propusnice na osnovu primljene vakcine.
+                    \item Izdavanje propusnice na osnovu negativnog PCR ili antigenskog testa.
+                    \item Izdavanje propusnice na osnovu preležanog virusa.
+                \end{itemize}
+            \item Korisnik bira jednu od ponuđenih opcija.
+            \item Sistem proverava zadovoljenost uslova.
+            \item Sistem korisniku šalje mejl sa kovid propusnicom.
+            \item Sistem obaveštava korisnika da je operaciju uspešno izvršena i da je propusnica poslata.
+        \end{enumerate}
+     
+    %Ako postoje, podtokove nazivati sa P1, P2, ...   
+    %\item \textbf{Podtokovi:}    
+    
+    %Alternativne tokove nazivati sa A1, A2, ...
+    \item \textbf{Alternativni tokovi:}
+        \begin{itemize}
+            \item[A1.] \textbf{Neuspešno prijavljivanje.} Ukoliko u koraku 5 osnovnog toka sistem naiđe na neispravne podatke, obaveštava korisnika i zahteva ponovni unos podataka. Proces se nastavlja u koraku 3 osnovnog toka.
+            \item[A2.] \textbf{Uslovi za izdavanje nisu zadovoljeni.} Ukoliko u koraku 9 osnovnog toga sistem ustanovi da nisu zadovoljeni odgovarajući uslovi za izdavanje propusnice, obaveštava korisnika. Proces se završava.
+        \end{itemize}
+    
+    %Ako postoje, specijalne zahteve navesti ovde
+    %\item \textbf{Specijalni zahtevi:}
+        
+    \item \textbf{Dodatne informacije:}
+        \begin{itemize}
+            \item Podaci koji su potrebni za prijavu na sistem su korisničko ime i lozinka.
+            \item Uslovi za izdavanje propusnice su:
+                \begin{itemize}
+                    \item Druga doza vakcine je primljena pre manje od 7 meseci ili  je primljena treća doza vakcine.
+                    \item Postojanje negativnog PCR testa koji nije stariji od 72 sata ili antigenskog testa koji nije stariji od 48 sati.
+                    \item Virus je preležan pre manje od 7 meseci.
+                \end{itemize}
+            \item Kovid propusnica sadrži QR kod na osnovu kog se proverava validnost propusnice.
+        \end{itemize}
+\end{itemize}
 
 \subsubsection{Slučaj upotrebe: Validacija kovid propusnica}
 
