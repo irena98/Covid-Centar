@@ -31,6 +31,10 @@ Irena Vasiljević 1018/2021
 
 \section{Analiza sistema}
 
+Informacioni sistem Kovid centar svojim funkcionalnostima obezbe\dj{}uje sigurno i brzo sprovo\dj{}enje procedura neophodnih za za\v{s}titu od virusa COVID-19. Namenjen je pre svega osobama koje nameravaju da se testiraju i/ili vakcini\v{s}u kao i nadle\v{z}nim licima za kori\v{s}\'{c}enje relevantnih statistika.\newline
+\indent Rezultati testova, informacije o testiranim licima, informacije o vakcinisanim licima i drugo, predstavljaju podatke koje na\v{s} informacioni sistem koristi pri a\v{z}uriranju korisnika o narednim koracima za\v{s}tite od virusa kao i pri dodeljivanju kovid propusnica. Pored toga, na zahtev mo\v{z}emo podatke dostaviti nadle\v{z}nim licima iz ministarstva zdravlja.
+
+
 \section{Procesi i slučajevi upotrebe}
 
 %Menjajte strukturu i nazive kako vam se uklapa u slučaj :)
@@ -159,7 +163,55 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \subsubsection{Slučaj upotrebe: ...}
 
 \subsection{Informisanje}
-\subsubsection{Slučaj upotrebe: Sprovođenje statistike}
+\subsubsection{Slučaj upotrebe: Sprovođenje statistike nadle\v{z}nom licu}
+\begin{itemize}
+\item \textbf{Kratak opis:}  Nadle\v{z}no lice iz ministarstva zdravlja popunjava formular na osnovu kojeg mu se nakon autentikacije i konsultovanja baze podataka u malom broju koraka dostavljaju tra\v{z}eni podaci.
+\item \textbf{Učesnici:}
+\begin{itemize}
+    \item Nadle\v{z}no lice iz ministarstva iz zdravlja.
+\end{itemize}
+ \item \textbf{Preduslovi:} Sistem je aktivan. Potra\v{z}ilac statistike iz ministarstva zdravlja ima pristup internetu.
+ \item \textbf{Postuslovi:} Ministarstvu su na raspolaganje dostavljeni zatra\v{z}eni podaci.
+ \item \textbf{Osnovni tok:}
+ \begin{enumerate}
+    \item Lice iz ministarstva otvara stranicu za autentikaciju.
+    \item Sistem prikazuje formular za autentikaciju.
+    \item Lice iz ministarstva popunjava polja za: ime, prezime, JMBG i jedinstveni identifikacioni broj koji je specijalno dodeljen za ovaj vid transakcije.
+    \item Lice potvrđuje unos.
+    \item Sistem proverava informacije koje su mu dostavljene u popunjenom formularu za autentikaciju.
+    \item Nakon provere identiteta, sistem obave\v{s}tava lice iz ministarstva o uspe\v{s}nosti autentikacije.
+    \item Sistem prikazuje stranicu sa ponu\dj{}enim opcijama za dohvatanje statistike.
+    \item Lice iz ministarstva bira neke od opcija:
+    \begin{itemize}
+                    \item Dohvatanje statistike o broju vakcinisanih Pfizer-BioNTech vakcinom u odre\dj{}enom vremenskom periodu.
+                    \item Dohvatanje statistike o broju vakcinisanih Sputnik V vakcinom u odre\dj{}enom vremenskom periodu.
+                    \item Dohvatanje statistike o broju vakcinisanih Sinopharm vakcinom u odre\dj{}enom vremenskom periodu.
+                    \item Dohvatanje statistike o broju vakcinisanih Oxford/AstraZeneca vakcinom u odre\dj{}enom vremenskom periodu.
+                    \item Dohvatanje statistike o broju testiranih na COVID-19 u odre\dj{}enom vremenskom periodu.
+                    \item Dohvatanje statistike o broju osoba sa pozitivnim testom na \newline COVID-19 u odre\dj{}enom vremenskom periodu.
+                    \item Dohvatanje informacija (vreme, identitet lica iz ministarstva) o prethodnim potra\v{z}ivanjima iz ministarstva zdravlja.
+                \end{itemize}
+    \item Sistem proverava da li je uspe\v{s}no izabrana neka od opcija.
+    \item Sistem na osnovu izbora dostavlja statistiku licu iz ministartstva zdravlja.
+    \item Informacije o vremenu i identitetu potra\v{z}ioca \v{c}uvaju se u sistemu.
+ \end{enumerate}
+ \item \textbf{Alternativni tokovi:}
+ \begin{itemize}
+            \item[A1.] \textbf{Neuspe\v{s}na dodela dozvole za podno\v{s}eje zahteva.} Ukoliko u koraku 5 osnovnog toka sistem naiđe na neispravne podatke, obaveštava korisnika i zahteva ponovni unos podataka. Proces se nastavlja u koraku 3 osnovnog toka.
+            \item[A2.] \textbf{Neispravno podno\v{s}enje zahteva.} Ukoliko u koraku 9 osnovnog toka sistem utvrdi da lice iz ministarstva nije odabralo nijednu od ponu\dj{}enih opcija, lice o tome biva obave\v{s}teno. Proces se nastavlja u koraku 8 osnovnog toka. 
+        \end{itemize}
+ \item \textbf{Dodatne informacije:}
+            \begin{itemize}
+                \item Jedinstveni identifikacioni broj koji se koristi za autentikaciju u\v{c}esnika i dodelu dozvole za podno\v{s}enje zahteva za statistiku dodeljuje se u dogovoru sa ministarstvom zdravlja posebno svim licima koja \'{c}e biti  zadu\v{z}ena za dohvatatanje statistike.
+            \end{itemize}
+
+\end{itemize}
+
+\begin{figure}[H]
+\includegraphics[scale=0.53]{Sprovodjenje_statistike}
+\caption{Dijagram aktivnosti - Sprovo\dj{}enje statistike nadle\v{z}nom licu}
+\end{figure}
+
 \subsubsection{Slučaj upotrebe: Kol-centar}
 
 \subsection{Kovid propusnice}
