@@ -165,8 +165,43 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 %\subsubsection{Slučaj upotrebe: Izdavanje uživo potvrde o vakcinaciji}
 
 
-\subsection{Obaveštenje o drugoj/trećoj dozi vakcine}
-\subsubsection{Slučaj upotrebe: ...}
+\subsection{Obaveštavanje o drugoj/trećoj dozi vakcine}
+\subsubsection{Slučaj upotrebe: Obave\v{s}tavanje o drugoj dozi vakcine}
+\begin{itemize}
+    \item \textbf{Kratak opis:} Sistem na osnovu podataka o prvom primanju vakcine vakcinisanoj osobi \v{s}alje obave\v{s}tenje o primanju druge doze (mesec dana nakon primanja prve).
+    \item \textbf{Učesnici:} 
+        \begin{itemize}
+            \item Vakcinisana osoba.
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan, podaci o vakcinaciji osobe su a\v{z}urirani.
+    \item \textbf{Postuslovi:} Оsoba dobija podatke o vremenu i mestu vakcinacije. Sistem je a\v{z}uriran. 
+    \item \textbf{Osnovni tok:}
+    \begin{enumerate}
+        \item Sistem pristupa podacima o vakcinisanima.
+        \item Sistem predla\v{z}e vreme i mesto vakcinacije drugom dozom vakcine koja je već primljena prvi put.
+        \item Osoba prihvata vreme i mesto vakcinacije.
+        \item Sistem obave\v{s}tava osobu da je termin zakazan.
+        \item Sistem a\v{z}urira podatke o zakazanim terminima.
+    \end{enumerate}
+    \item \textbf{Alternativni tokovi:}
+    \begin{itemize}
+        \item[A1.] \textbf{Osoba ne prihvata predlo\v{z}eni termin.} Ukoliko osoba nije u mogućnosti da zadovolji predlo\v{z}eni termin, sistem to uva\v{z}ava i prosle\dj{}uje formular u kome osoba zadaje vreme i mesto vakcinacije. 
+        \item[A2.] \textbf{Sistem ne prihvata zadati termin.} Ako sistem ne prihvata zadati termin, \v{s}alje isti formular osobi. Ukoliko sistem prihvati zadato, proces se nastavlja u ta\v{c}ki 4 osnovnog toka.
+        
+    \end{itemize}
+    \item \textbf{Dodatne informacije:}
+    \begin{itemize}
+        \item Sistem treba ponuditi mogućnosti osobi koja želi da popuni formular, u vidu spiska lokacija Kovid-ambulanti i spiska termina (datum i vreme - na svakih pola sata u okviru radnog vremena).
+    \end{itemize}
+\end{itemize}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{Vakcinacija_drugom_dozom}
+\caption{Dijagram aktivnosti - Obaveštavanje o vakcinaciji drugom dozom}
+\end{figure}
+
 
 \subsection{Informisanje}
 \subsubsection{Slučaj upotrebe: Sprovođenje statistike nadle\v{z}nom licu}
