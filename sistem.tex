@@ -1,8 +1,6 @@
 \documentclass[titlepage]{article}
 \usepackage{xcolor}
-\usepackage[serbian]{babel}
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
+\usepackage[english, croatian]{babel}
 
 \usepackage{verbatim}
 \usepackage{graphicx}
@@ -212,7 +210,34 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \caption{Dijagram aktivnosti - Sprovo\dj{}enje statistike nadle\v{z}nom licu}
 \end{figure}
 
-\subsubsection{Slučaj upotrebe: Kol-centar}
+\subsubsection{Slučaj upotrebe: Kol centar}
+\begin{itemize}
+\item \textbf{Kratak opis:} Osoba poziva kol centar Kovid sistema u cilju informisanja. Dodeljenom opereteru može postavljati pitanja koja se tiču terapije, vakcinacije, simptoma i slično.
+\item \textbf{Učesnici:}
+\begin{itemize}
+    \item Osoba koja poziva kol centar.
+    \item Operater koji se dodeljuje osobi za vreme poziva.
+\end{itemize}
+ \item \textbf{Preduslovi:} Osoba poseduje mobilni ili fiksni telefon. Postoje aktivni operateri.
+ \item \textbf{Postuslovi:} Osoba je dobila odgovore na sva pitanja koja je postavila operateru.
+ \item \textbf{Osnovni tok:}
+ \begin{enumerate}
+    \item Osoba poziva broj telefona kol centra.
+    \item Neki od trenutno slobodnih operatera se dodeljuje osobi za vreme poziva.
+    \item Osoba i operater otpočinju razgovor u kom operater odgovara na postavljena pitanja.
+    \item Razgovor se zavr\v{s}ava.
+ \end{enumerate}
+ \item \textbf{Alternativni tokovi:}
+ \begin{itemize}
+            \item[A1.] \textbf{Prekid veze} Ukoliko nakon koraka 2 osnovnog toka sistema dođe do tehničkih smetnji ili obustave poziva, razgovor biva prekinut.
+        \end{itemize}
+ \item \textbf{Dodatne informacije:}
+            \begin{itemize}
+                \item Kol centar poseduje jedinstveni servisni broj otvoren od strane regulatornog tela.
+                \item Svi pozivaoci bivaju preusmereni na određeni lokal, dok se operater dodeljuje prema listi čekanja.
+            \end{itemize}
+
+\end{itemize}
 
 \subsection{Kovid propusnice}
 
