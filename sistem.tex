@@ -122,11 +122,11 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
             \item Osoba otvara web-stranicu za logovanje.
 	    \item Osoba unosi i potvrđuje korisničko ime i lozinku.
             \item Sistem prikazuje formular za prijavu.
-            \item Osoba bira ponuđeno vreme i proizvođače vakcina.
+            \item Osoba bira ponuđene ustanove i proizvođače vakcina.
             \item Osoba potvrđuje unos.
             \item Sistem čuva unete podatke.
-	    \item Sistem daje mogućnost izbora raspoloživih ustanova za zadat termin i vakcine.
-	    \item Osoba bira ponuđene ustanove i potvrđuje. 
+	    \item Sistem daje mogućnost izbora raspoloživih termina za zadate ustanove i vakcine.
+	    \item Osoba bira ponuđene termine i potvrđuje. 
             \item Sistem zakazuje termin vakcinacije.
 	    \item Sistem korisniku šalje email sa potvrdom o zakazanom terminu.
             \item Sistem obaveštava korisnika da je operacija uspešno izvršena i da je potvrda poslata.
@@ -155,14 +155,194 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \caption{Dijagram aktivnosti - Pondnošenje prijave online}
 \end{figure}
 
-
 \subsubsection{Slučaj upotrebe: Podnošenje prijave uživo}
-%\subsubsection{Slučaj upotrebe: Evidentiranje prijave u sistemu}
-\subsubsection{Slučaj upotrebe: Obaveštavanje o terminu vakcinacije online}
-\subsubsection{Slučaj upotrebe: Obaveštavanje o terminu vakcinacije uživo}
-\subsubsection{Slučaj upotrebe: Otkazivanje termina vakcinacije}
-%\subsubsection{Slučaj upotrebe: Izadavanje online potvrde o vakcinaciji}
-%\subsubsection{Slučaj upotrebe: Izdavanje uživo potvrde o vakcinaciji}
+\begin{itemize}
+    \item \textbf{Kratak opis:} Neprijavljena osoba vrši prijavu popunjavanjem papirnog formulara, traženim podacima. Sistem potvrđuje validnost podataka i vraća poruku o uspešnosti prijave.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Neprijavljena osoba - želi da se prijavi za prvu dozu vakcine.
+	    \item Medicinski radnik - pruža pomoć osobi u podnošenju prijave.
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan.
+    \item \textbf{Postuslovi:} Osoba je dobila potvrdu o zakazanom terminu i mestu prve vakcinacije.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+            \item Osoba dolazi na informacioni pult i izjavljuje da želi da se vakciniše.
+	    \item Medicinski radnik na pultu odlazi na deo sistema koji je predviđen za registraciju novih korisnika.
+	    \item Osoba daje potrebne informacije za registraciju, zdravstvenu knjižicu i neki lični dokument za evidenciju medicinskom radniku.
+	    \item Medicinski radnik unosi podatke u sistem.
+	    \item Medicinski radnik potvrđuje unos.
+	    \item Sistem vrši validaciju podataka.
+            \item Sistem čuva podatke.
+            \item Sistem prikazuje informacije o nalogu koji kreira i traži potvrdu registracije.
+	    \item Medicinski radnik nakon provere podataka potvrđuje registraciju osobe.
+            \item Sistem obaveštava da je osoba uspešno registrovana.
+	    \item Medicinski radnik od osobe traži da odabere ustanove i proizvođače vakcina.
+	    \item Osoba obaveštava medicinskog radnika o odgovarajućim ustanovama i proizvođačima vakcine.
+	    \item Medicinski radnik unosi podatke u sistem i potvrđuje.
+	    \item Sistem dajte pregled slobodnih termina.
+            \item Medicinski radnik obaveštava osobu o slobodnim terminima.
+	    \item Osoba bira termin.
+	    \item Medicinski radnik bira odgovarajući termin u sistemu i potvrđuje.
+            \item Sistem zakazuje termin vakcinacije.
+	    \item Sistem osobi šalje email sa potvrdom o zakazanom terminu.
+            \item Sistem obaveštava medicinskog radnika da je operacija uspešno izvršena i da je potvrda poslata.
+	    \item Medicinski radnik obaveštava osobu da je operacija uspešno izvršena i da je potvrda poslata na njen email.
+	\end{enumerate}
+     
+    %Ako postoje, podtokove nazivati sa P1, P2, ...   
+    %\item \textbf{Podtokovi:}    
+    
+    %Alternativne tokove nazivati sa A1, A2, ...
+    \item \textbf{Alternativni tokovi:}
+        \begin{itemize}
+            \item[A1.] \textbf{Neuspešna validacija podataka.} Ukoliko u koraku 6 osnovnog toka sistem naiđe na neispravne podatke, obaveštava medicinskog radnika i zahteva ponovni unos onih polja gde su nevalidni podaci. Pri čemu označava polja sa nevalidnim podacima. Kada medicinski radnik unese sve podatke ispravno, proces se nastavlja u koraku 5 osnovnog toka.
+	     \item[A2.] \textbf{Nema slobodnih termina.} Ukoliko u koraku 14 osnovnog toka medicinski radnik dobije obaveštenje od sistema da nema slobodnih termina za zadate ustanove i vakcine, on informaciju prenosi osobi i proces se nastavlja u koraku 11 osnovnog toka.
+        \end{itemize}
+    
+    %Ako postoje, specijalne zahteve navesti ovde
+    \item \textbf{Specijalni zahtevi:}
+		\begin{itemize}
+			\item Potrebno je da je zdravstvena knjižica, osobe koja zakazuje vakcinaciju, u trenutku zakazivanja važeća.
+		\end{itemize}
+
+
+     \item \textbf{Dodatne informacije:}
+        \begin{itemize}
+	    \item Dokument za evidenciju osobe čija se registracija vrši može biti pasoš ili lična karta.
+            \item  Podaci potrebni za prijavu su:
+                \begin{itemize}
+                    \item ime
+                    \item prezime
+                    \item JMBG
+                    \item broj zdravstvene knjižice
+                    \item broj telefona
+                    \item email adresa
+		    \item korisničko ime
+		    \item lozinka
+                \end{itemize}
+        \end{itemize}
+  
+\end{itemize}
+
+
+\subsubsection{Slučaj upotrebe: Otkazivanje termina vakcinacije - online prijavljena osoba}
+\begin{itemize}
+    \item \textbf{Kratak opis:} Online prijavljena osoba za primanje prve doze vakcine, usled izvesnih okolnosti otkazuje zauzeti termin za primanje prve doze vakcine. Sistem potvrđuje odjavu i oslobađa termin.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Prijavljena osoba - želi da se otkaže termin primanja prve doze vakcine.
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba je prethodno zakazala primanje prve doze vakcine.
+    \item \textbf{Postuslovi:} Osoba je dobila potvrdu o otkazanom terminu i ima mogućnost da se ponovo prijavi za primanje prve doze vakcine.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+            \item Osoba otvara web-stranicu za logovanje.
+	    \item Osoba unosi i potvrđuje korisničko ime i lozinku.
+	    \item Sistem prikazuje prethodno podnetu prijavu i informacije o njoj.
+	    \item Osoba bira opciju za otkazivanje prijave i potvrđuje je.
+	    \item Sistem otvara formu za unos razloga otkazivanja prijave.
+	    \item Sistem zahteva od osobe da popuni formu.
+	    \item Osoba unosi razlog otkazivanja prijave.
+            \item Osoba potvrđuje unos razloga.
+	    \item Sistem evidentira odjavu.
+	    \item Sistem oslobađa termin za dato mesto, vakcinu i vreme.
+	    \item Sistem osobi šalje email sa potvrdom o uspešnoj odjavi termina.
+	    \item Sistem obaveštava osobu o uspešnoj odjavi termina i da je potvrda o odjavi poslata.
+	\end{enumerate}
+     
+    %Ako postoje, podtokove nazivati sa P1, P2, ...   
+    %\item \textbf{Podtokovi:}    
+    
+    %Ako postoje, specijalne zahteve navesti ovde
+    \item \textbf{Specijalni zahtevi:}
+		\begin{itemize}
+			\item Potrebno je da osoba koja se odjavljuje ima validan razlog za otkazivanje prve primanja prve doze vakcine.
+		\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Slučaj upotrebe: Otkazivanje termina vakcinacije - uživo prijavljena osoba}
+\begin{itemize}
+    \item \textbf{Kratak opis:} Uživo prijavljena osoba za primanje prve doze vakcine, usled izvesnih okolnosti otkazuje zauzeti termin za primanje prve doze vakcine. Sistem potvrđuje odjavu i oslobađa termin.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Prijavljena osoba - želi da se otkaže termin primanja prve doze vakcine.
+	    \item Medicinski radnik - pruža pomoć osobi u podnošenju odjave.
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba je prethodno zakazala primanje prve doze vakcine.
+    \item \textbf{Postuslovi:} Osoba je dobila potvrdu o otkazanom terminu i ima mogućnost da se ponovo prijavi za primanje prve doze vakcine.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+            \item Osoba dolazi na informacioni pult ili telefonskim pozivom izjavljuje da želi da odjavi zauzeti termin.
+	    \item Medicinski radnik na pultu odlazi na deo sistema koji je predviđen za odjavu prijavljenih osoba.
+	    \item Sistem zahteva podatke osobe koja želi da odjavi termin.
+	    \item Medicinski radnik zahteva podatke osobe koja se odjavljuje.
+	    \item Osoba obaveštava medicinskog radnika o podacima.
+	    \item Medicinski radnik unosi podatke u sistem i potvrđuje.
+            \item Sistem za date podatke pronalazi registrovani nalog.
+	    \item Sistem prikazuje nalog i prethodno zakazani termin.
+	    \item Sistem zahteva unošenje razloga i potvrdu odjave.
+	    \item Medicinski radnik proverava nalog osobe i prethodno zakazani termin.
+	    \item Medicinski radnik zahteva razlog odjave termina od osobe.
+	    \item Osoba obaveštava medicinskog radnika o razlogu odjave termina.
+	    \item Medicinski radnik unosi razlog odjave termina i potvrđuje odjavu termina.
+	    \item Sistem evidentira odjavu.
+	    \item Sistem oslobađa termin za dato mesto, vakcinu i vreme.
+	    \item Sistem obaveštava medicinskog radnika o uspešnoj odjavi termina.
+	    \item Medicinski radnik obaveštava osobu o uspešnoj odjavi termina.
+	\end{enumerate}
+     
+    %Ako postoje, podtokove nazivati sa P1, P2, ...   
+    %\item \textbf{Podtokovi:}    
+    
+    %Alternativne tokove nazivati sa A1, A2, ...
+    \item \textbf{Alternativni tokovi:}
+        \begin{itemize}
+            \item[A1.] \textbf{Nepostojeći podaci u bazi.} Ukoliko u koraku 7 osnovnog toka sistem za unete podatke ne pronađe nalog u bazi, obaveštava medicinskog radnika i zahteva ponovni unos podataka. Medicinski radnik obaveštava osobu o neispravnosti podataka i zahteva da se podaci ponovo daju. Proces se nastavlja u koraku 4 osnovnog toka.
+        \end{itemize}
+    
+    %Ako postoje, specijalne zahteve navesti ovde
+    \item \textbf{Specijalni zahtevi:}
+		\begin{itemize}
+			\item Potrebno je da osoba koja se odjavljuje ima validan razlog za otkazivanje prve primanja prve doze vakcine.
+		\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Slučaj upotrebe: Evidentiranje o primljenoj prvoj dozi vakcine}
+\begin{itemize}
+    \item \textbf{Kratak opis:} Nakon što osoba koja je prijavljena za primanje prve doze vakcine, vakcinu uspešno primi, medicinski radnik to evidentira u sistemu.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Prijavljena osoba - osoba koja je uspešno primila prvu dozu vakcine.
+	    \item Medicinski radnik - evidentira primanje prve doze vakcine u sistemu.
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba je uspešno primila prvu dozu vakcine.
+    \item \textbf{Postuslovi:} Primanje prve doze vakcine je uspešno evidentirano u sistemu.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+	    \item Osoba nakon uspešno primljene prve doze vakcine obaveštava medicinskog radnika o tome.
+	    \item Medicinski radnik odlazi na deo sistema koji je predviđen za evidentiranje primanja prve doze vakcine.
+            \item Medicinski radnik zahteva od osobe njene podatke.
+	    \item Osoba dajte podatke, potrebne za evidenciju, medicinskom radniku.
+	    \item Medicinski radnik u sistem unosi podatke osobe i potvrđuje.
+	    \item Sistem prikazuje nalog osobe sa datim podacima i zahteva potvrdu.
+	    \item Medicinski radniik proverava podatke osobe i naloga.
+	    \item Medicinski radnik potvrđuje uspešno primanje prve doze vakcine.
+	    \item Sistem obaveštava medicinskog radnika da je potvrda uspešno evidentirana.
+	\end{enumerate}
+     
+    %Ako postoje, podtokove nazivati sa P1, P2, ...   
+    %\item \textbf{Podtokovi:}    
+    
+    %Alternativne tokove nazivati sa A1, A2, ...
+    \item \textbf{Alternativni tokovi:}
+        \begin{itemize}
+            \item[A1.] \textbf{Nepostojeći podaci.} Ukoliko u koraku 5 osnovnog toka sistem naiđe na neispravne podatke, obaveštava medicinskog radnika i zahteva ponovni unos podataka. Medicinski radnik ponovo zahteva podatke od vakcinisane osobe i kada ispravno unese podatke u sistem, proces se nastavlja u koraku 6 osnovnog toka.
+        \end{itemize}
+    
+\end{itemize}
 
 
 \subsection{Obaveštavanje o drugoj/trećoj dozi vakcine}
