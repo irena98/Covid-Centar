@@ -289,7 +289,7 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 
 \subsection{Kovid propusnice}
 
-U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku su opisani slučajevi upotrebe izdavanja i validacije kovid propusnica. Na Slici \ref{slk:izdavanje} je prikazan dijagram aktivnosti za slučaj upotrebe izdavanja propusnice.
+U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku su opisani slučajevi upotrebe izdavanja i validacije kovid propusnica.
 
 \subsubsection{Slučaj upotrebe: Izdavanje kovid propusnice}
 
@@ -358,6 +358,48 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
 \end{figure}
 
 \subsubsection{Slučaj upotrebe: Validacija kovid propusnica}
+
+\begin{itemize}
+    \item \textbf{Kratak opis:} Kontrolor očitava QR kod sa kovid propusnice. Sistem proverava podatke i prikazuje odgovarajuću poruku o validnosti propusnice.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Kontrolor - želi brzo da proveri validnost kovid propusnice
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan. Kontrolor ima pristup internetu.
+    \item \textbf{Postuslovi:} Sistem je obavestio kontrolora o validnosti kovid propusnice.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+            \item Kontrolor očitava QR kod sa kovid propusnice.
+            \item Kontrolor otvara stranicu za validaciju.
+            \item Sistem dobija zahtev za validaciju propusnice.
+            \item Sistem proverava zadovoljenost uslova za važenje propusnice.
+            \item Sistem prikazuje podatke o vlasniku propusnice i status propusnice:
+                \begin{itemize}
+                    \item Zeleno - ukoliko su uslovi za važenje propusnice zadovoljeni.
+                    \item Crveno - ukoliko uslovi za važenje propusnice nisu zadovoljeni.
+                \end{itemize}
+        \end{enumerate}
+    \item \textbf{Specijalni zahtevi:}
+        \begin{itemize}
+            \item Kontrolor poseduje uređaj kojim se može skenirati QR kod.
+        \end{itemize}
+    \item \textbf{Dodatne informacije:}
+        \begin{itemize}
+            \item Uslovi za važenje propusnice su:
+                \begin{itemize}
+                    \item Druga doza vakcine je primljena pre manje od 7 meseci ili  je primljena treća doza vakcine.
+                    \item Postojanje negativnog PCR testa koji nije stariji od 72 sata ili antigenskog testa koji nije stariji od 48 sati.
+                    \item Virus je preležan pre manje od 7 meseci.
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Validacija_propusnice}
+\caption{Dijagram sekvence - Validacija kovid propusnice}
+\label{slk:validacija}
+\end{figure}
 
 \subsection{Testiranje}
 
