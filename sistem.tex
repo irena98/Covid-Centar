@@ -354,7 +354,7 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
             \item Vakcinisana osoba.
         \end{itemize}
     \item \textbf{Preduslovi:} Sistem je aktivan, podaci o vakcinaciji osobe su a\v{z}urirani.
-    \item \textbf{Postuslovi:} Оsoba dobija podatke o vremenu i mestu vakcinacije. Sistem je a\v{z}uriran. 
+    \item \textbf{Postuslovi:} Osoba dobija podatke o vremenu i mestu vakcinacije. Sistem je a\v{z}uriran. 
     \item \textbf{Osnovni tok:}
     \begin{enumerate}
         \item Sistem pristupa podacima o vakcinisanima.
@@ -435,20 +435,21 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 
 \subsubsection{Slučaj upotrebe: Kol centar}
 \begin{itemize}
-\item \textbf{Kratak opis:} Osoba poziva kol centar Kovid sistema u cilju informisanja. Dodeljenom opereteru može postavljati pitanja koja se tiču terapije, vakcinacije, simptoma i slično.
+\item \textbf{Kratak opis:} Osoba poziva kol centar Kovid sistema u cilju informisanja. Dodeljenom opereteru može postavljati pitanja koja se tiču terapije, vakcinacije, simptoma, tegoba (naročito posle vakcinacije). Saopštene informacije se čuvaju u sistemu za potrebe dalje analize i izrade statistike u okviru sistema.
 \item \textbf{Učesnici:}
 \begin{itemize}
     \item Osoba koja poziva kol centar.
     \item Operater koji se dodeljuje osobi za vreme poziva.
 \end{itemize}
- \item \textbf{Preduslovi:} Osoba poseduje mobilni ili fiksni telefon. Postoje aktivni operateri.
- \item \textbf{Postuslovi:} Osoba je dobila odgovore na sva pitanja koja je postavila operateru.
+ \item \textbf{Preduslovi:} Sistem je aktivan. Osoba poseduje mobilni ili fiksni telefon. Postoje aktivni operateri.
+ \item \textbf{Postuslovi:} Osoba je dobila odgovore na sva pitanja koja je postavila operateru. Sistem ažurira podatke o tekućem razgovoru.
  \item \textbf{Osnovni tok:}
  \begin{enumerate}
     \item Osoba poziva broj telefona kol centra.
     \item Neki od trenutno slobodnih operatera se dodeljuje osobi za vreme poziva.
     \item Osoba i operater otpočinju razgovor u kom operater odgovara na postavljena pitanja.
-    \item Razgovor se zavr\v{s}ava.
+    \item Razgovor se završava.
+    \item Sistem ažurira podatke o simptomima i tegobama.
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
@@ -463,7 +464,7 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \end{itemize}
 
 \begin{figure}[H]
-\includegraphics[scale=0.8]{Kol_centar}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Kol_centar}
 \caption{Dijagram aktivnosti - Kol centar}
 \end{figure}
 
