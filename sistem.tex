@@ -345,7 +345,7 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \end{itemize}
 
 
-\subsection{Obaveštavanje o drugoj/trećoj dozi vakcine}
+\subsection{Obaveštavanje o drugoj dozi vakcine}
 \subsubsection{Slučaj upotrebe: Obave\v{s}tavanje o drugoj dozi vakcine}
 \begin{itemize}
     \item \textbf{Kratak opis:} Sistem na osnovu podataka o prvom primanju vakcine vakcinisanoj osobi \v{s}alje obave\v{s}tenje o primanju druge doze (mesec dana nakon primanja prve).
@@ -353,20 +353,24 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
         \begin{itemize}
             \item Vakcinisana osoba.
         \end{itemize}
-    \item \textbf{Preduslovi:} Sistem je aktivan, podaci o vakcinaciji osobe su a\v{z}urirani.
-    \item \textbf{Postuslovi:} Osoba dobija podatke o vremenu i mestu vakcinacije. Sistem je a\v{z}uriran. 
+    \item \textbf{Preduslovi:} Sistem je aktivan, podaci o vakcinaciji osobe su a\v{z}urirani. Osoba ima pristup internetu.
+    \item \textbf{Postuslovi:} Оsoba dobija podatke o vremenu i mestu vakcinacije. Sistem je a\v{z}uriran. 
     \item \textbf{Osnovni tok:}
     \begin{enumerate}
-        \item Sistem pristupa podacima o vakcinisanima.
+        \item Sistem pristupa podacima o vakcinisanima. Sistem ovu operaciju izvodi automatski, svakog dana u podne.
         \item Sistem predla\v{z}e vreme i mesto vakcinacije drugom dozom vakcine koja je već primljena prvi put.
-        \item Osoba prihvata vreme i mesto vakcinacije.
+        \item Osoba ne prihvata vreme i mesto vakcinacije.
+        \item Sistem šalje formular osobi kako bi odabrala vreme i mesto vakcinacije
+        \item Osoba upisuje vreme i mesto vakcinacije.
+        \item Sistem validira unete podatke.
         \item Sistem obave\v{s}tava osobu da je termin zakazan.
-        \item Sistem a\v{z}urira podatke o zakazanim terminima.
+        \item Sistem a\v{z}urira podatke o zakazanim terminima (paralelno sa korakom 7).
     \end{enumerate}
     \item \textbf{Alternativni tokovi:}
     \begin{itemize}
-        \item[A1.] \textbf{Osoba ne prihvata predlo\v{z}eni termin.} Ukoliko osoba nije u mogućnosti da zadovolji predlo\v{z}eni termin, sistem to uva\v{z}ava i prosle\dj{}uje formular u kome osoba zadaje vreme i mesto vakcinacije. 
-        \item[A2.] \textbf{Sistem ne prihvata zadati termin.} Ako sistem ne prihvata zadati termin, \v{s}alje isti formular osobi. Ukoliko sistem prihvati zadato, proces se nastavlja u ta\v{c}ki 4 osnovnog toka.
+        \item[A1.] \textbf{Osoba prihvata predlo\v{z}eni termin.} Ukoliko osoba u koraku 3 prihvati vreme i mesto koje je sistem po automatizmu poslao, šalje potvrdu sistemu i proces se nastavlja u tački 7 osnovnog toka. 
+        \item[A2.] \textbf{Sistem ne prihvata zadati termin.} Ako sistem ne uspe da izvrši validaciju zadatog termina u tački 6, \v{s}alje isti formular osobi. 
+        Proces se nastavlja u tački 4 osnovnog toka.
         
     \end{itemize}
     \item \textbf{Dodatne informacije:}
