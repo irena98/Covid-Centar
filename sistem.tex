@@ -621,7 +621,7 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
 
 \subsection{Testiranje}
 
-\subsubsection{Slučaj upotrebe: Testiranje}
+\subsubsection{Slučaj upotrebe: Testiranje osobe PCR ili Antigen testom}
 
 \begin{itemize}
     \item \textbf{Kratak opis:} Osoba odlazi u kovid ambulantu kako bi se testirala PCR ili antigenskim testom. Nakon identifikacije, osoba popunjava formular i ide na testiranje. Medicinski radnik koji vrši testiranje čeka rezultate i osobi šalje mejl sa podacima o ishodu testa, ažurirajući pritom bazu podataka radi dobijanja kovid propusnica i sl.
@@ -640,10 +640,13 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
                \item PCR test
                \item Sars-Cov-2 Antigen test
            \end{itemize}
+           \item Osoba potpisuje formular.
            \item Radnik upisuje podatke o osobi sa formulara.
            \item Osoba ide na testiranje.
-           \item Nakon čekanja rezultata, radnik šalje osobi rezultate testa.
-           \item Radnik ažurira bazu podataka.
+           \item Radnik čeka rezultate.
+           \item Nakon čekanja rezultata, radnik šalje osobi rezultate testa na mejl sa formulara.
+           \item Osoba dobija mejl.
+           \item Radnik ažurira bazu podataka. Sistem je ažuriran.
         \end{enumerate}
     \item \textbf{Specijalni zahtevi:}
         \begin{itemize}
@@ -664,4 +667,9 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
         \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Dijagram_testiranje}
+\caption{BPMN dijagram saradnje - testiranje}
+\end{figure}
 \end{document}
