@@ -592,6 +592,47 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
 
 \subsection{Testiranje}
 
-\subsubsection{Slučaj upotrebe: Unos informacija o urađenom testu}
+\subsubsection{Slučaj upotrebe: Testiranje}
+
+\begin{itemize}
+    \item \textbf{Kratak opis:} Osoba odlazi u kovid ambulantu kako bi se testirala PCR ili antigenskim testom. Nakon identifikacije, osoba popunjava formular i ide na testiranje. Medicinski radnik koji vrši testiranje čeka rezultate i osobi šalje mejl sa podacima o ishodu testa, ažurirajući pritom bazu podataka radi dobijanja kovid propusnica i sl.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Osoba
+            \item Medicinski radnik - osoblje zaposleno u ambulanti
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba ima pristup internetu.
+    \item \textbf{Postuslovi:} Osoba dobija mejl sa rezultatom testa. Sistem je ažuriran.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+           \item Osoba ulazi u ambulantu.
+           \item Radnik traži lični dokument na uvid i daje osobi formular koji treba popuniti. \item Osoba u formularu bira jedan od dva testa:
+           \begin{itemize}
+               \item PCR test
+               \item Sars-Cov-2 Antigen test
+           \end{itemize}
+           \item Radnik upisuje podatke o osobi sa formulara.
+           \item Osoba ide na testiranje.
+           \item Nakon čekanja rezultata, radnik šalje osobi rezultate testa.
+           \item Radnik ažurira bazu podataka.
+        \end{enumerate}
+    \item \textbf{Specijalni zahtevi:}
+        \begin{itemize}
+            \item Osoba kod sebe mora imati važeći lični dokument.
+        \end{itemize}
+    \item \textbf{Dodatne informacije:}
+        \begin{itemize}
+            \item Osoba u formularu upisuje:
+            \begin{itemize}
+                \item Ime
+                \item Prezime
+                \item JMBG
+                \item E-mail adresu
+            \end{itemize}
+            \item Ukoliko je rezultat PCR testa pozitivan, osoba ima virus i mora ostati u kućnoj izolaciji naredne 2 nedelje. Ukoliko je rezultat negativan, osoba dobija pravo na kovid propusnicu.
+            \item Ukoliko je rezultat Sars-Cov-2 Antigen testa pozitivan, osoba dobija pravo na kovid propusnicu prema važećim uslovima. Ukoliko je rezultat negativan, osoba treba preduzeti sve mere predostrožnosti kako bi se zaštitila od infekcije.
+            \item Ukoliko je rezultat bilo kog testa nevalidan, osoba snosi troškove testiranja i poziva se na ponovno testiranje.
+        \end{itemize}
+\end{itemize}
 
 \end{document}
