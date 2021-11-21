@@ -48,7 +48,7 @@ Informacioni sistem Kovid centar svojim funkcionalnostima obezbe\dj{}uje sigurno
 \subsection{Prva doza vakcine - aktivnosti}
 Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe počev od podnošenja prijave do evidentiranja uspešno primljene prve doze vakcine.
 
-\subsubsection{Sličaj upotrebe: Online registracija}
+\subsubsection{Slučaj upotrebe: Online registracija}
 \begin{itemize}
     \item \textbf{Kratak opis:} Neregistrovana osoba vrši registraciju popunjavanjem online forme, traženim podacima. Sistem potvrđuje validnost podataka i vraća potvrdu o uspešnosti registracije.
     \item \textbf{Učesnici:}
@@ -310,15 +310,15 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \end{itemize}
 
 
-\subsubsection{Slučaj upotrebe: Evidentiranje o primljenoj prvoj dozi vakcine}
+\subsubsection{Slučaj upotrebe: Evidentiranje vakcinacije}
 \begin{itemize}
-    \item \textbf{Kratak opis:} Nakon što osoba koja je prijavljena za primanje prve doze vakcine, vakcinu uspešno primi, medicinski radnik to evidentira u sistemu.
+    \item \textbf{Kratak opis:} Osoba je primila određenu dozu vakcine što se evidentira u sistemu od strane medicinskog radnika.
     \item \textbf{Učesnici:}
         \begin{itemize}
-            \item Prijavljena osoba - osoba koja je uspešno primila prvu dozu vakcine.
-	    \item Medicinski radnik - evidentira primanje prve doze vakcine u sistemu.
+            \item Osoba - osoba koja se vakciniše.
+	    	\item Medicinski radnik - vrši evidentiranje u sistem.
         \end{itemize}
-    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba je uspešno primila prvu dozu vakcine.
+    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba je izrazila zainteresovanost za primanje vakcine.
     \item \textbf{Postuslovi:} Primanje prve doze vakcine je uspešno evidentirano u sistemu.
     \item \textbf{Osnovni tok:}
         \begin{enumerate}
@@ -344,21 +344,20 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     
 \end{itemize}
 
-
-\subsection{Obaveštavanje o drugoj/trećoj dozi vakcine}
-\subsubsection{Slučaj upotrebe: Obave\v{s}tavanje o drugoj dozi vakcine}
+\subsection{Naredne doze vakcine - aktivnosti}
+\subsubsection{Slučaj upotrebe: Prijava i obaveštavanje o narednoj dozi vakcine}
 \begin{itemize}
-    \item \textbf{Kratak opis:} Sistem na osnovu podataka o prvom primanju vakcine vakcinisanoj osobi \v{s}alje obave\v{s}tenje o primanju druge doze (mesec dana nakon primanja prve).
+    \item \textbf{Kratak opis:} Sistem na osnovu podataka o primanju prethodne doze vakcine osobu prijavljuje za dobijanje naredne doze vakcine i obaveštava je o terminu.
     \item \textbf{Učesnici:} 
         \begin{itemize}
-            \item Vakcinisana osoba.
+            \item Osoba - osoba koja treba da primi narednu dozu vakcine.
         \end{itemize}
-    \item \textbf{Preduslovi:} Sistem je aktivan, podaci o vakcinaciji osobe su a\v{z}urirani.
-    \item \textbf{Postuslovi:} Osoba dobija podatke o vremenu i mestu vakcinacije. Sistem je a\v{z}uriran. 
+    \item \textbf{Preduslovi:} Sistem je aktivan, podaci o vakcinaciji osobe su ažurni.
+    \item \textbf{Postuslovi:} Osoba je prijavljena za dobijanje naredne doze vakcine i o tome biva obaveštena. Sistem je ažuriran.
     \item \textbf{Osnovni tok:}
     \begin{enumerate}
         \item Sistem pristupa podacima o vakcinisanima.
-        \item Sistem predla\v{z}e vreme i mesto vakcinacije drugom dozom vakcine koja je već primljena prvi put.
+        \item Sistem predla\v{z}e vreme i mesto vakcinacije narednom dozom vakcine.
         \item Osoba prihvata vreme i mesto vakcinacije.
         \item Sistem obave\v{s}tava osobu da je termin zakazan.
         \item Sistem a\v{z}urira podatke o zakazanim terminima.
@@ -379,9 +378,39 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{Vakcinacija_drugom_dozom}
-\caption{Dijagram aktivnosti - Obaveštavanje o vakcinaciji drugom dozom}
+\caption{Dijagram aktivnosti - Prijava i obaveštavanje o narednoj dozi vakcine}
 \end{figure}
 
+\subsection{Vakcinacija}
+\subsubsection{Slučaj upotrebe: Vakcinacija i evidentiranje}
+\begin{itemize}
+	\item \textbf{Kratak opis}: Osoba je prijavljena za vakcinaciju bilo kojom dozom. Nakon završene vakcinacije se sistem ažurira.
+	\item \textbf{Učesnici}:
+	\begin{itemize}
+		\item Osoba - osoba koja se vaksiniše.
+		\item Medicinski radnik - službeno lice koje vakciniše i upisuje potrebne informacije.
+	\end{itemize}
+	\item \textbf{Preduslovi}: Osoba ja prijavljena i ima zakazan termin. Sistem je aktivan.
+	\item \textbf{Postuslovi}: Osoba je vaksinisana. Sistem je ažuriran.
+	\item \textbf{Osnovni tok}:
+	\begin{enumerate}
+		\item Osoba medicinskom radniku daje svoju zdravstvenu knjižicu i ostale informacije potrebne za identifikaciju.
+		\item Proverava se da li je osoba prijavljena za vakcinaciju.
+		\item Medicinski radnik vaksiniše osobu.
+		\item Medicinski radnik upisuje potrebne informacije u sistem.
+	\end{enumerate}
+	\item \textbf{Alternativni tokovi}:
+	\begin{enumerate}
+		\item[A1.] \textbf{Osoba nije prijavljena}. Ukoliko se u koraku 2 osnovnog toka ustanovi da osoba nije prijavljena, onda ona ne može biti vakcinisana.
+	\end{enumerate}
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\includegraphics[width=0.6\textwidth]{Vakcinacija}
+		\caption{Dijagram aktivnosti - Vakcinacija i evidentiranje}
+	\end{figure}
+\end{center}
 
 \subsection{Informisanje}
 \subsubsection{Slučaj upotrebe: Sprovođenje statistike nadle\v{z}nom licu}
