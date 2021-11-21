@@ -335,9 +335,12 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \item \textbf{Postuslovi:} Osoba je prijavljena za dobijanje naredne doze vakcine i o tome biva obaveštena. Sistem je ažuriran.
     \item \textbf{Osnovni tok:}
     \begin{enumerate}
-        \item Sistem pristupa podacima o vakcinisanima.
-        \item Sistem predla\v{z}e vreme i mesto vakcinacije narednom dozom vakcine.
-        \item Osoba prihvata vreme i mesto vakcinacije.
+        \item Sistem pristupa podacima o vakcinisanima. Sistem ovu operaciju izvodi automatski, svakog dana u podne.
+        \item Sistem predla\v{z}e vreme i mesto vakcinacije drugom dozom vakcine koja je već primljena prvi put.
+        \item Osoba ne prihvata vreme i mesto vakcinacije.
+        \item Sistem šalje formular osobi kako bi odabrala vreme i mesto vakcinacije
+        \item Osoba upisuje vreme i mesto vakcinacije.
+        \item Sistem validira unete podatke.
         \item Sistem obave\v{s}tava osobu da je termin zakazan.
         \item Sistem a\v{z}urira podatke o zakazanim terminima (paralelno sa korakom 7).
     \end{enumerate}
