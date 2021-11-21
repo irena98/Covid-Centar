@@ -28,9 +28,8 @@ Irena Vasiljević 1018/2021
 \section{Uvod}
 
 \section{Analiza sistema}
-
-Informacioni sistem Kovid centar svojim funkcionalnostima obezbe\dj{}uje sigurno i brzo sprovo\dj{}enje procedura neophodnih za za\v{s}titu od virusa COVID-19. Namenjen je pre svega osobama koje nameravaju da se testiraju i/ili vakcini\v{s}u kao i nadle\v{z}nim licima za kori\v{s}\'{c}enje relevantnih statistika.\newline
-\indent Rezultati testova, informacije o testiranim licima, informacije o vakcinisanim licima i drugo, predstavljaju podatke koje na\v{s} informacioni sistem koristi pri a\v{z}uriranju korisnika o narednim koracima za\v{s}tite od virusa kao i pri dodeljivanju kovid propusnica. Pored toga, na zahtev mo\v{z}emo podatke dostaviti nadle\v{z}nim licima iz ministarstva zdravlja.\newline
+Informacioni sistem Kovid centar svojim funkcionalnostima obezbe\dj{}uje sigurno i jednostavno sprovo\dj{}enje procedura neophodnih za za\v{s}titu od virusa COVID-19. \newline
+\noindent Pored manipulacije podacima o testiranim i vakcinisanim pacijentima, informacioni sistem mehanizmima registracije i prijave pacijenatima pru\v{z}a mogu\'{c}nost automatizacije dodeljivanja termina vakcinacije i obave\v{s}tavanje o istim. Omogu\'{c}eno je  izdavanje i validacija kovid propusnice koja predstavlja garanciju da vlasnik ne predstavlja pretnju za suzbijanje virusa. Bitan deo predstavlja saradnja sa ministarstvom zdravlja, koja uklju\v{c}uje bezbedno dostavljanje relevantnih podataka ministarstvu. Komunikacija de\v{z}urnog medicinskog radnika sa pacijentom realizovana je posredstvom Kol centra, gde se pacijenti mogu detaljinije informisati o virusu ili  posavetovati u slu\v{c}aju prisustva nekih tegoba, nakon čega informacije o simptomima i tegobama bivaju čuvane u sistemu i biće dostupne ministarstvu zdravlja za dalje razmatranje.\newline
 \indent Na Slici \ref{slk:slucajevi} nalazi se dijagram koji prikazuje učesnike sistema i njihove poslove. Slika \ref{slk:kontekst} prikazuje dijagram interakcije sistema sa svetom, a na Slici \ref{slk:dtp} se nalazi dijagram koji opisuje glavne procese i tok podataka u sistemu.
 
 \begin{figure}[H]
@@ -392,6 +391,31 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \end{center}
 
 \subsection{Informisanje}
+\subsubsection{Slučaj upotrebe: Dodela specijalnog identifikacionog broja za dohvatanje statistike }
+\begin{itemize}
+    
+\item \textbf{Kratak opis:} Ministarstvo zdravlja sistemu dostavlja podatke  o licima koja \'{c}e biti nadle\v{z}na za slanje zahteva za dohvatanje statistika dostupnih u informacionom sistemu. Nakon provere podataka, sistem za svako od odabranih lica vr\v{s}i registraciju na sistem i generi\v{s}e specijalni identifikacioni broj koji će se koristiti pri logovanju za podno\v{s}enje zahteva za dohvatanje statistike. 
+\item \textbf{Učesnici:}
+\begin{itemize}
+    \item Nadle\v{z}no lice iz ministarstva zdravlja
+\end{itemize}
+ \item \textbf{Preduslovi:} Sistem je aktivan
+ \item \textbf{Postuslovi:} Svakom od lica iz ministarstva koje je zadu\v{z}eno za dohvatanje statistike dostavljen je poseban identifikacioni broj koji će koristiti pri logovanju za slanje zahteva za dohvatanje statistike. 
+ \item \textbf{Osnovni tok:}
+ \begin{enumerate}
+    \item Lice iz ministarstva zdravlja formira spisak nadle\v{z}nih lica za dohvatanje statistike.
+    \item Taj spisak putem sigurnih kanala (bilo uživo bilo elektronski) biva dostavljen do informacionog sistema.
+    \item Koriste\'{c}i posebne he\v{s} funkcije u pozadini, sistem generi\v{s}e identifikacione brojeve.
+    \item Svaki od identifikacionih brojeva putem sigurnih kanala ( bilo u\v{z}ivo bilo elektronski) biva dostavljen svakom od lica iz ministarstva koje su se na\v{s}li na spisku nadle\v{z}nih za dohvatanje statistike.
+    \item Svako od nadle\v{z}nih lica za dohvatanje statistike iz ministarstva zdravlja biva registrovano na sistem, i biva obave\v{s}teno da \'{c}e za logovanje na sistem za potrebe slanja zahteva za dohvatanje statistike koristiti dodeljen identifikacioni broj.
+ \end{enumerate}
+\end{itemize}
+
+\begin{figure}[H]
+\includegraphics[scale=0.53]{Dodela_ID_za_dohvatanje_statistike.jpg}
+\caption{Dijagram aktivnosti - Sprovo\dj{}enje statistike nadle\v{z}nom licu}
+\end{figure}
+
 \subsubsection{Slučaj upotrebe: Sprovođenje statistike nadle\v{z}nom licu}
 \begin{itemize}
 \item \textbf{Kratak opis:}  Nadle\v{z}no lice iz ministarstva zdravlja popunjava formular na osnovu kojeg mu se nakon autentikacije i konsultovanja baze podataka u malom broju koraka dostavljaju tra\v{z}eni podaci.
@@ -412,32 +436,37 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \item Sistem prikazuje stranicu sa ponu\dj{}enim opcijama za dohvatanje statistike.
     \item Lice iz ministarstva bira neke od opcija:
     \begin{itemize}
-                    \item Dohvatanje statistike o broju vakcinisanih Pfizer-BioNTech vakcinom u odre\dj{}enom vremenskom periodu.
-                    \item Dohvatanje statistike o broju vakcinisanih Sputnik V vakcinom u odre\dj{}enom vremenskom periodu.
-                    \item Dohvatanje statistike o broju vakcinisanih Sinopharm vakcinom u odre\dj{}enom vremenskom periodu.
-                    \item Dohvatanje statistike o broju vakcinisanih Oxford/AstraZeneca vakcinom u odre\dj{}enom vremenskom periodu.
-                    \item Dohvatanje statistike o broju testiranih na COVID-19 u odre\dj{}enom vremenskom periodu.
-                    \item Dohvatanje statistike o broju osoba sa pozitivnim testom na \newline COVID-19 u odre\dj{}enom vremenskom periodu.
-                    \item Dohvatanje informacija (vreme, identitet lica iz ministarstva) o prethodnim potra\v{z}ivanjima iz ministarstva zdravlja.
+                    \item Dohvatanje statistike o broju vakcinisanih Pfizer-BioNTech vakcinom u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
+                    \item Dohvatanje statistike o broju vakcinisanih Sputnik V vakcinom u odre\dj{}enom vremenskom periodu i i odre\dj{}noj lokaciji.
+                    \item Dohvatanje statistike o broju vakcinisanih Sinopharm vakcinom u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
+                    \item Dohvatanje statistike o broju vakcinisanih Oxford/AstraZeneca vakcinom u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
+                    \item Dohvatanje statistike o broju testiranih na COVID-19 u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
+                    \item Dohvatanje statistike o broju osoba sa pozitivnim testom na \newline COVID-19 u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
+                    \item Dohvatanje podataka o simpotmima i tegobama na koje su ukazali pacijenti koji su koristili Kol centar u odre\d{}enom vremenskom periodu.
+                    \item Dohvatanje informacija (vreme, identitet lica iz kovid ambulante, identitet lica iz ministarstva zdravlja, koli\v{c}ina zahtevanih zaliha vakcina i testova, odgovor nadle\v{z}nog lica iz ministarstva na zahtev) o potra\v{z}ivanjima novih zaliha vakcina  i testova. 
+                    \item Dohvatanje informacija (vreme, identitet lica iz ministarstva) o prethodnim potra\v{z}ivanjima statistike iz ministarstva zdravlja.
                 \end{itemize}
     \item Sistem proverava da li je uspe\v{s}no izabrana neka od opcija.
-    \item Sistem na osnovu izbora dostavlja statistiku licu iz ministartstva zdravlja.
-    \item Informacije o vremenu i identitetu potra\v{z}ioca \v{c}uvaju se u sistemu.
+    \item Informacije o vremenu i identitetu potra\v{z}ioca \v{c}uvaju se u sistemu i sistem na osnovu izbora nadle\v{z}nom licu prikazuje stranicu na kojoj se moze preuzeti .xlsx fajl sa zahtevanim podacima.
+    \item Lice iz ministartstva zdravlja klikom na "download data" zapo\v{c}icnje preuzimanje na lokalnu ma\v{s}inu.
+
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
             \item[A1.] \textbf{Neuspe\v{s}na dodela dozvole za podno\v{s}eje zahteva.} Ukoliko u koraku 5 osnovnog toka sistem naiđe na neispravne podatke, obaveštava korisnika i zahteva ponovni unos podataka. Proces se nastavlja u koraku 3 osnovnog toka.
             \item[A2.] \textbf{Neispravno podno\v{s}enje zahteva.} Ukoliko u koraku 9 osnovnog toka sistem utvrdi da lice iz ministarstva nije odabralo nijednu od ponu\dj{}enih opcija, lice o tome biva obave\v{s}teno. Proces se nastavlja u koraku 8 osnovnog toka. 
         \end{itemize}
+        \begin{comment}
  \item \textbf{Dodatne informacije:}
             \begin{itemize}
                 \item Jedinstveni identifikacioni broj koji se koristi za autentikaciju u\v{c}esnika i dodelu dozvole za podno\v{s}enje zahteva za statistiku dodeljuje se u dogovoru sa ministarstvom zdravlja posebno svim licima koja \'{c}e biti  zadu\v{z}ena za dohvatatanje statistike.
             \end{itemize}
 
+    \end{comment}
 \end{itemize}
 
 \begin{figure}[H]
-\includegraphics[scale=0.53]{Sprovodjenje_statistike}
+\includegraphics[scale=0.45]{Sprovodjenje_statistike}
 \caption{Dijagram aktivnosti - Sprovo\dj{}enje statistike nadle\v{z}nom licu}
 \end{figure}
 
