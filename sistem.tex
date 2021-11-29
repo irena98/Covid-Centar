@@ -58,8 +58,7 @@ Informacioni sistem Kovid centar svojim funkcionalnostima obezbe\dj{}uje sigurno
 
 %Menjajte strukturu i nazive kako vam se uklapa u slučaj :)
 
-\subsection{Prva doza vakcine - aktivnosti}
-Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe počev od podnošenja prijave do evidentiranja uspešno primljene prve doze vakcine.
+\subsection{Registracija}
 
 \subsubsection{Slučaj upotrebe: Online registracija}
 \begin{itemize}
@@ -120,6 +119,8 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 
 \end{itemize}
 
+\subsection{Vakcinacija}
+Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe počev od podnošenja prijave do evidentiranja uspešno primljene doze vakcine, kao i obaveštavanja o terminu primanja naredne doze.
 
 \subsubsection{Slučaj upotrebe: Podnošenje prijave online}
 \begin{itemize}
@@ -322,8 +323,7 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 		\end{itemize}
 \end{itemize}
 
-\subsection{Naredne doze vakcine - aktivnosti}
-\subsubsection{Slučaj upotrebe: Prijava i obaveštavanje o narednoj dozi vakcine}
+\subsubsection{Slučaj upotrebe: Obaveštavanje o narednoj dozi vakcine}
 \begin{itemize}
     \item \textbf{Kratak opis:} Sistem na osnovu podataka o primanju prethodne doze vakcine osobu prijavljuje za dobijanje naredne doze vakcine i obaveštava je o terminu.
     \item \textbf{Učesnici:} 
@@ -360,11 +360,10 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{Vakcinacija_drugom_dozom}
-\caption{Dijagram aktivnosti - Prijava i obaveštavanje o narednoj dozi vakcine}
+\caption{Dijagram aktivnosti - Obaveštavanje o narednoj dozi vakcine}
 \end{figure}
 
-\subsection{Vakcinacija}
-\subsubsection{Slučaj upotrebe: Vakcinacija i evidentiranje}
+\subsubsection{Slučaj upotrebe: Evidentiranje primljene doze}
 \begin{itemize}
 	\item \textbf{Kratak opis}: Osoba je prijavljena za vakcinaciju bilo kojom dozom. Nakon završene vakcinacije se sistem ažurira.
 	\item \textbf{Učesnici}:
@@ -385,12 +384,15 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 
 \begin{center}
 	\begin{figure}[H]
-		\includegraphics[width=0.6\textwidth]{Vakcinacija}
-		\caption{Dijagram aktivnosti - Vakcinacija i evidentiranje}
+		\includegraphics[width=0.95\textwidth]{Vakcinacija}
+		\caption{Dijagram aktivnosti - Evidentiranje primljene doze}
 	\end{figure}
 \end{center}
 
 \subsection{Informisanje}
+
+U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču korišćenja našeg sistema radi informisanja.
+
 \subsubsection{Slučaj upotrebe: Dodela specijalnog identifikacionog broja za dohvatanje statistike }
 \begin{itemize}
     
@@ -621,6 +623,8 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
 
 \subsection{Testiranje}
 
+U ovom poglavlju se bavimo formalizacijom procesa testiranja registrovanih osoba.
+
 \subsubsection{Slučaj upotrebe: Testiranje osobe PCR ili Antigen testom}
 
 \begin{itemize}
@@ -669,7 +673,18 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{Dijagram_testiranje}
+\includegraphics[scale=0.5]{Dijagram_testiranje}
 \caption{BPMN dijagram saradnje - testiranje}
 \end{figure}
+
+\subsection{Dobavljanje medicinskih sredstava}
+
+\subsection{Administracija}
+
+U ovom poglavlju se bavimo administracijom sistema. U nastavku su prikazani neki od poslova koje administrator sistema obavlja.
+
+\subsubsection{Slučaj upotrebe: Dodavanje novog korisnika}
+
+\subsubsection{Slučaj upotrebe: Pravljenje rezervne kopije baze}
+
 \end{document}
