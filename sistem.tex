@@ -509,7 +509,14 @@ U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču kor
 
 \subsection{Kovid propusnice}
 
-U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku su opisani slučajevi upotrebe izdavanja i validacije kovid propusnica.
+U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku su opisani slučajevi upotrebe izdavanja i validacije kovid propusnica. Na Slici \ref{slk:propusnica} prikazan je niz stanja u kojima se može naći kovid propusnica.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Kovid_propusnica}
+\caption{Dijagram stanja - Kovid propusnica}
+\label{slk:propusnica}
+\end{figure}
 
 \subsubsection{Slučaj upotrebe: Izdavanje kovid propusnice}
 
@@ -685,6 +692,65 @@ U ovom poglavlju se bavimo administracijom sistema. U nastavku su prikazani neki
 
 \subsubsection{Slučaj upotrebe: Dodavanje novog korisnika}
 
+\begin{itemize}
+    \item \textbf{Kratak opis:} Administrator prima zahtev, validira podatke i registruje novog korisnika.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Administrator
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan.
+    \item \textbf{Postuslovi:} Novi korisnik je registrovan.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+            \item Administrator dobija zahtev za registrovanje.
+            \item Administrator proverava da li je formular validan.
+            \item Administrator otvara stranicu za dodavanje novog korisnika.
+            \item Administrator popunjava formular.
+            \item Administrator potvrđuje unos.
+            \item Administrator šalje obaveštenje da je novi korisnik dodat.
+        \end{enumerate}  
+    
+    \item \textbf{Alternativni tokovi:}
+        \begin{itemize}
+            \item[A1.] \textbf{Formular nije validan.} Ukoliko u koraku 2 osnovnog toka administrator zaključi da formular nije validan, šalje odgovarajuće obaveštenje. Proces se završava.
+        \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Dodavanje_korisnika}
+\caption{Dijagram sekvence - Dodavanje novog korisnika}
+\label{slk:dodavanje}
+\end{figure}
+
 \subsubsection{Slučaj upotrebe: Pravljenje rezervne kopije baze}
+
+\begin{itemize}
+    \item \textbf{Kratak opis:} Administrator pristupa bazi i pravi rezervnu kopiju.
+    \item \textbf{Učesnici:}
+        \begin{itemize}
+            \item Administrator
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan.
+    \item \textbf{Postuslovi:} Napravljena je rezervna kopija baze.
+    \item \textbf{Osnovni tok:}
+        \begin{enumerate}
+            \item Administrator pristupa bazi sistema.
+            \item Administrator proverava da li je u toku neka izmena baze i ako nije prelazi na korak 4.
+            \item Administrator čeka da izmena baze bude gotova.
+            \item Administrator šalje aktivnim korisnicima sistema da je u toku izrada rezervne kopije baze.
+            \item Administrator pravi delimičnu ili kompletnu kopiju baze.
+            \item Administrator čuva rezervnu kopiju na odgovarajućoj memorijskoj lokaciji.
+            \item Administrator čuva vreme napravljene kopije.
+            \item Administrator obaveštava aktivne korisnike sistema da je izrada kopije gotova.
+        \end{enumerate}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{Kopija}
+\caption{Dijagram aktivnosti - Pravljenje rezervne kopije baze}
+\label{slk:dodavanje}
+\end{figure}
 
 \end{document}
