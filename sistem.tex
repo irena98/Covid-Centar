@@ -174,9 +174,9 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \item \textbf{Kratak opis:} Neprijavljena osoba vrši prijavu popunjavanjem papirnog formulara, traženim podacima. Sistem potvrđuje validnost podataka i vraća poruku o uspešnosti prijave.
     \item \textbf{Učesnici:}
         \begin{itemize}
-            \item Neprijavljena osoba - želi da se prijavi za prvu dozu vakcine.
 	    \item Medicinski radnik - pruža pomoć osobi u podnošenju prijave.
-        \end{itemize}
+        %  \item Neprijavljena osoba - želi da se prijavi za prvu dozu vakcine.
+	\end{itemize}
     \item \textbf{Preduslovi:} Sistem je aktivan.
     \item \textbf{Postuslovi:} Osoba je dobila potvrdu o zakazanom terminu i mestu prve vakcinacije.
     \item \textbf{Osnovni tok:}
@@ -281,9 +281,9 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \item \textbf{Kratak opis:} Uživo prijavljena osoba za primanje prve doze vakcine, usled izvesnih okolnosti otkazuje zauzeti termin za primanje prve doze vakcine. Sistem potvrđuje odjavu i oslobađa termin.
     \item \textbf{Učesnici:}
         \begin{itemize}
-            \item Prijavljena osoba - želi da se otkaže termin primanja prve doze vakcine.
 	    \item Medicinski radnik - pruža pomoć osobi u podnošenju odjave.
-        \end{itemize}
+              %   \item Prijavljena osoba - želi da se otkaže termin primanja prve doze vakcine.
+	\end{itemize}
     \item \textbf{Preduslovi:} Sistem je aktivan. Osoba je prethodno zakazala primanje prve doze vakcine.
     \item \textbf{Postuslovi:} Osoba je dobila potvrdu o otkazanom terminu i ima mogućnost da se ponovo prijavi za primanje prve doze vakcine.
     \item \textbf{Osnovni tok:}
@@ -783,6 +783,22 @@ Na Slici \ref{slk:dijagram_klasa} je prikazan model baze podataka korišćenjem 
 %Ovde ubaciti sliku dijagrama sa \label{slk:dijagram_klasa}
 
 \subsection{Podaci o osobama}
+
+Klasa Osoba je jedna od centralnih klasa našeg sistema. Ona predstavlja glavni izvor informacija od značaja za sistem kojima se kroz procese sistema pridružuju dodatne informacije koje se javljaju prilikom odvijanja procesa. \\ \\
+Podaci o osobi koji se čuvaju su:
+
+\begin{itemize}
+    \item ime
+    \item prezime
+    \item JMBG
+    \item broj ZI (broj zdravstvene knjižice)
+    \item telefon
+    \item email
+    \item username
+    \item lozinka
+\end{itemize}
+
+Klasa Osoba povezana je sa klasom Vakcinacija vezom "prima" i sa klasom Testiranje vezom "testira".
 
 \subsection{Podaci o medicinskom osoblju}
 
