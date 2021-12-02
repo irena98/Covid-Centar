@@ -753,4 +753,65 @@ U ovom poglavlju se bavimo administracijom sistema. U nastavku su prikazani neki
 \label{slk:dodavanje}
 \end{figure}
 
+\section{Baza podataka}
+
+Na osnovu opisanih slučajeva upotrebe, zaključeno je da je u bazi podataka potrebno čuvati sledeće grupe podataka:
+
+\begin{enumerate}
+    \item Osobe (koje se registruju, vakcinišu, testiraju)
+    \item Medicinsko osoblje
+    \begin{itemize}
+        \item Podaci o medicinskim radnicima
+        \item Podaci o operaterima
+    \end{itemize}
+    \item Lica iz ministarstva
+    \item Kovid ambulante
+    \item Zahtevi
+    \begin{itemize}
+        \item Podaci o zahtevima za dostavljanje statistike
+        \item Podaci o zahtevima za dostavljanje zaliha
+    \end{itemize}
+    \item Usluge
+    \begin{itemize}
+        \item Podaci o vakcinaciji
+        \item Podaci o testiranju
+    \end{itemize}
+\end{enumerate}
+
+Na Slici \ref{slk:dijagram_klasa} je prikazan model baze podataka korišćenjem UML dijagrama klasa.
+
+%Ovde ubaciti sliku dijagrama sa \label{slk:dijagram_klasa}
+
+\subsection{Podaci o osobama}
+
+\subsection{Podaci o medicinskom osoblju}
+
+\subsection{Podaci o licima iz ministarstva}
+
+\subsection{Podaci o kovid ambulantama}
+
+Klasa Kovid ambulanta predstavlja jednu od glavnih klasa za funkcionisanje sistema i u bliskoj je vezi za procesima koji se u okviru sistema odvijaju.\\ \\
+Podaci o ambulanti koji se čuvaju su:
+
+\begin{itemize}
+    \item identifikacioni broj ambulante
+    \item naziv
+    \item grad
+    \item opština
+    \item preostale zalihe testova
+    \item preostale zalihe vakcina
+\end{itemize}
+
+Takođe, radi sprovođenja statistike, ambulanta pruža usluge vraćanja sledećih informacija:
+
+\begin{itemize}
+    \item broj testiranih osoba u ambulanti u određenom vremenskom periodu, oređenim testom
+    \item broj pozitivno testiranih osoba u ambulanti u određenom vremenskom periodu, oređenim testom
+    \item broj vakcinisanih u ambulanti u određenom vremenskom periodu, određenom vakcinom
+\end{itemize}
+
+\subsection{Podaci o zahtevima}
+
+\subsection{Podaci o uslugama}
+
 \end{document}
