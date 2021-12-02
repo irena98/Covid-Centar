@@ -920,6 +920,20 @@ Podaci o osobi koji se čuvaju su:
 Klasa Osoba povezana je sa klasom Vakcinacija vezom "prima" i sa klasom Testiranje vezom "testira".
 
 \subsection{Podaci o medicinskom osoblju}
+Klasom Medicinsko osoblje predstavljaju se radnici zdravstvenog sistema i sistema kovid ambulanti.\\ \\
+Podaci o medicinskom osoblju:
+\begin{itemize}
+    \item ime
+    \item prezime
+    \item JMBG
+    \item identifikacioni broj
+\end{itemize}
+Klasu Medicinsko osoblje nasleđuju klase Medicinski radnik i Operater. Klasa Medicinski radnik predstavlja zaposlene koji pružaju usluge vakcinacije i testiranja. 
+Podaci o medicinskom radniku:
+\begin{itemize}
+    \item id zaposlenog
+\end{itemize}
+Klasa Operater predstavlja zaposlenog u Kol centru.
 
 \subsection{Podaci o licima iz ministarstva}
 
@@ -983,10 +997,37 @@ Klasa Lice iz ministarstva je u odnosu potra\v{z}uje sa klasom  Potra\v{z}ivanje
 
 Klasa Medicinski radnik je sa klasom Zahtev za nove zalihe u odnosu podnosi, a klasa Lice iz ministarstva je u odnosu potra\v{z}uje  sa klasom Zahtev za nove zalihe. 
 
-
-
-
-
 \subsection{Podaci o uslugama}
+Kovid ambulante pružaju usluge vakcinacije i testiranja. \\ \\ 
+Klasa Vakcinacija predstavlja događaj vakcinacije određene osobe. \\ \\
+Podaci o vakcinaciji:
+\begin{itemize}
+    \item datum vakcinacije
+\end{itemize}
+Klasa Testiranje predstavlja događaj testiranja određene osobe. \\ \\
+Podaci o testiranju:
+\begin{itemize}
+    \item datum testiranja
+    \item rezultat testa
+\end{itemize}
+\subsection{Podaci o vakcinama i testovima}
+Klasa Vakcina se odnosi na karakteristike dostupnih vakcina. \\ \\
+Podaci o vakcinama:
+\begin{itemize}
+\item proizvođač 
+    \item serija
+    \item rok upotrebe
+\end{itemize}
+Klasa Test odnosi se na karakteristike dostupnih testova. \\ \\
+Podaci o testovima:
+\begin{itemize}
+    \item tip testa
+    \item rok upotrebe
+\end{itemize}
+
+
+
+
+
 
 \end{document}
