@@ -442,11 +442,10 @@ U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču kor
                     \item Dohvatanje statistike o broju vakcinisanih Sputnik V vakcinom u odre\dj{}enom vremenskom periodu i i odre\dj{}noj lokaciji.
                     \item Dohvatanje statistike o broju vakcinisanih Sinopharm vakcinom u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
                     \item Dohvatanje statistike o broju vakcinisanih Oxford/AstraZeneca vakcinom u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
-                    \item Dohvatanje statistike o broju testiranih na COVID-19 u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
-                    \item Dohvatanje statistike o broju osoba sa pozitivnim testom na \newline COVID-19 u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
-                    \item Dohvatanje podataka o simpotmima i tegobama na koje su ukazali pacijenti koji su koristili Kol centar u odre\d{}enom vremenskom periodu.
-                    \item Dohvatanje informacija (vreme, identitet lica iz kovid ambulante, identitet lica iz ministarstva zdravlja, koli\v{c}ina zahtevanih zaliha vakcina i testova, odgovor nadle\v{z}nog lica iz ministarstva na zahtev) o potra\v{z}ivanjima novih zaliha vakcina  i testova. 
-                    \item Dohvatanje informacija (vreme, identitet lica iz ministarstva) o prethodnim potra\v{z}ivanjima statistike iz ministarstva zdravlja.
+                    \item Dohvatanje statistike o broju testiranih na COVID-19 PCR testom  u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
+	         \item Dohvatanje statistike o broju testiranih na COVID-19 antigenskim testom  u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
+                    \item Dohvatanje statistike o broju osoba sa pozitivnim PCR testom na COVID-19 u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
+	         \item Dohvatanje statistike o broju osoba sa pozitivnim antigenskim testom na COVID-19 u odre\dj{}enom vremenskom periodu i odre\dj{}noj lokaciji.
                 \end{itemize}
     \item Sistem proverava da li je uspe\v{s}no izabrana neka od opcija.
     \item Informacije o vremenu i identitetu potra\v{z}ioca \v{c}uvaju se u sistemu i sistem na osnovu izbora nadle\v{z}nom licu prikazuje stranicu na kojoj se moze preuzeti .xlsx fajl sa zahtevanim podacima.
@@ -654,7 +653,9 @@ U ovom poglavlju se bavimo formalizacijom procesa testiranja registrovanih osoba
            \item Osoba potpisuje formular.
            \item Radnik upisuje podatke o osobi sa formulara.
            \item Osoba ide na testiranje.
-           \item Radnik čeka rezultate. Nakon čekanja rezultata, radnik šalje osobi rezultate testa na mejl sa formulara.
+           \item Radnik čeka rezultate.
+           \item Nakon čekanja rezultata, radnik šalje osobi rezultate testa na mejl sa formulara.
+           \item Osoba dobija mejl.
            \item Radnik ažurira bazu podataka. Sistem je ažuriran.
         \end{enumerate}
     \item \textbf{Specijalni zahtevi:}
@@ -683,6 +684,126 @@ U ovom poglavlju se bavimo formalizacijom procesa testiranja registrovanih osoba
 \end{figure}
 
 \subsection{Dobavljanje medicinskih sredstava}
+
+\subsubsection{Slučaj upotrebe: Dodela specijalnog identifikacionog broja za u\v{c}estvovanje u transakciji zaliha}
+\begin{itemize}
+    
+\item \textbf{Kratak opis:} Ministarstvo zdravlja sistemu dostavlja podatke  o licima koja \'{c}e biti nadle\v{z}na za regulisanje transakcije  novih zaliha vakcina i testova. Nakon provere podataka, sistem za svako od odabranih lica vr\v{s}i registraciju na sistem i generi\v{s}e specijalni identifikacioni broj koji će se koristiti pri logovanju za odgovaranje na zahtev za dostavljanje zaliha vakcina i testova i pri logovanju za potvrdu uspe\v{s}no izvr\v{s}ene transakcije zaliha. 
+\item \textbf{Učesnici:}
+\begin{itemize}
+    \item Nadležno lice ministarstva zdravlja
+\end{itemize}
+ \item \textbf{Preduslovi:} Sistem je aktivan. Učesnik ima pristup internetu.
+ \item \textbf{Postuslovi:} Sva lica iz ministarstva nadle\v{z}na za odgovaranje na zahtev za dostavljanje novih zaliha poseduje poseban identifikacioni broj koji će koristiti pri logovanju na sistem u svrhu odgovaranja na zahtev za nove zalihe.
+ \item \textbf{Osnovni tok:}
+ \begin{enumerate}
+    \item Lice iz ministarstva zdravlja formira spisak nadle\v{z}nih lica za odgovoranje na zahtev kovid ambulanti za dostavljanje novih zaliha.
+    \item Lice iz ministarstva taj spisak putem sigurnih kanala elektronskom poštom biva dostavljen do informacionog sistema.
+    \item Koristeći u pozadini posebne he\v{s} funkcije , sistem generi\v{s}e identifikacione brojeve.
+    \item Sistem, svaki od identifikacionih brojeva putem sigurnih kanala elektronskom poštom dostavlja svakom od lica iz ministarstva koje se na\v{s}lo na spisku nadle\v{z}nih za odgovoranje na zahtev kovid ambulanti za dostavljanje novih zaliha.
+    \item Svako od nadle\v{z}nih lica za odgovaranje na zahtev za dostavljanje zaliha sistem registruje, i obaveštava da \'{c}e za logovanje na sistem za potrebe odgovora na zahtev za dostavljanje zaliha koristiti dodeljen identifikacioni broj.
+ \end{enumerate}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{DodelaIDZaTransakcijuZaliha}
+\caption{Dijagram aktivnosti -  Dodela specijalnog identifikacionog broja za u\v{c}estvovanje u transakciji zaliha}
+\end{figure}
+
+\subsubsection{Slučaj upotrebe: Potra\v{z}ivanje novih zaliha vakcina i testova}
+\begin{itemize}
+\item \textbf{Kratak opis:} Nakon \v{s}to neka od kovid ambulanti ostane sa nezadovoljavaju\'{c}om koli\v{c}inom vakcina i/ili testova nekog od proizvo\dj{}a\v{c}a,  nakon neophodnih provera, sistem kroz nekoliko koraka nudi mogu\'{c}nost slanja zahteva ministarstvu zdravlja kojim se potra\v{z}uju neophodne zalihe vakcina i/ili testova, a nadle\v{z}no lice iz ministarstva \v{s}alje povratnu informaciju o mogu\v{c}nostima ispunjenja podnetog zahteva.
+\item \textbf{Učesnici:}
+\begin{itemize}
+    \item \v{C}lan medicinskog osoblja kovid ambulante.
+    \item  Nadle\v{z}no lice iz ministarstva zdravlja.
+\end{itemize}
+ \item \textbf{Preduslovi:} Sistem je aktivan. Svi u\v{c}esnici imaju pristup internetu.
+ \item \textbf{Postuslovi:} Ministarstvo zdravlja je prihvatilo zahtev i poslalo povratnu informaciju o mogu\'{c}nostima ispunjenja zahteva kovid ambulante.
+ \item \textbf{Osnovni tok:}
+ \begin{enumerate}
+    \item \v{C}lan medicinskog osoblja otvara stranicu za podno\v{s}enje zahteva.
+    \item Sistem mu prikazuje stranicu sa formularom.
+    \item \v{C}lan medicinskog osoblja popunjava formular koji je neophodan za autentikaciju. Formular sadr\v{z}i polje za ime, prezime, JMBG, informacije o kovid ambulanti iz koje se zahtev \v{s}alje.
+    \item \v{C}lan medicinskog osoblja potvr\dj{}uje unos.
+    \item Sistem vr\v{s}i validaciju unetih podataka.
+    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa formularom za podno\v{s}enje zahteva koji je formatiran tako da se pored svakog od proizvo\dj{}a\v{c}a nalazi polje za unos broja zahtevanih vakcina  odgovaraju\'{c}eg proizvo\dj{}a\v{c}a i polje za unos broja zahtevanih testova.  
+    \item \v{C}lan medicinskog osoblja popunjava formular i potvr\dj{}uje unos.
+    \item Sistem proverava ispravnost popunjenog formulara.
+    \item Sistem podnetom zahtevu dodeljuje identifikacioni broj. 
+    \item Sistem zahtev prosle\dj{}uje nekom od lica iz ministarstva zadu\v{z}enom za slanje povratne informacije o mogu\v{c}nostima ispunjenja zahteva.
+    \item Nadle\v{z}no lice ministarstva otvara stranicu za logovanje
+    \item Sistem nadle\v{z}nom licu prikazuje stranicu i zahteva da se popune polja za ime, prezime, JMBG i poseban identifikacioni broj specijalno dodeljen za ovaj vid transakcija.
+    \item Nadle\v{z}no lice ministarstva unosi podatke i potvr\dj{}uje unos.
+    \item Sistem proverava validnost unetih podataka.
+    \item Nadle\v{z}no lice iz ministarstva odgovara na zahtev.
+    \item Kao propratna informacija \v{c}lanu medicinskog osoblja salje se vremenski interval (du\v{z}ine najvi\v{s}e 8 sati) u okviru kojeg se o\v{c}ekuje da transport zatra\v{z}enih zaliha bude realizovan.
+    \item Identifikacioni broj zahteva, informacije o vremenu, zatra\v{z}enim zalihama, povratnoj informaciji, identitetu podnosioca zahteva kao i o  identitetu lica iz ministarstva zdravlja koje je na zahtev odgovorilo \v{c}uvaju se u sistemu.
+ \end{enumerate}
+ \item \textbf{Alternativni tokovi:}
+ \begin{itemize}
+            \item[A1.] \textbf{Neuspe\v{s}na dodela dozvole za podno\v{s}eje zahteva.} Ukoliko u koraku 5 osnovnog toka sistem naiđe na neispravne podatke, obaveštava korisnika i zahteva ponovni unos podataka. Proces se nastavlja u koraku 3 osnovnog toka.
+            \item[A2.] \textbf{Neispravno podno\v{s}enje zahteva.} Ukoliko u koraku 8 osnovnog toka sistem utvrdi da \v{c}lan medicinskog osoblja nije popunilo formular kako je predvi\dj{}eno, on o tome biva obave\v{s}teno. Proces se nastavlja u koraku 6 osnovnog toka. 
+            \item[A3.] \textbf{Neuspe\v{s}na dodela dozvole za odgovor na zahtev.} Ukoliko u koraku 14. sistem utvrdi gre\v{s}ku pri autentikaciji, o tome obave\v{s}tava u\v{c}esnika. Proces se nastavlja u koraku 12. 
+            \item[A4.] \textbf{Odbijen zahtev za dostavljanje zaliha} Ukoliko je u koraku 15. nadle\v{z}no lice iz ministarstva uputilo negativan odgovor, kao propratnu informaciju \v{c}lanu medicinskog osoblja pored obrazlo\v{z}enja odluke, \v{s}alje na koju kovid ambulatni je eventualno potrebno preusmeriti pacijente (na osnovu lokacije i preostalih zaliha). Proces se nastavlja u koraku 17 osnovnog toka.
+        \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{Potrazivanje_novih_zaliha}
+\caption{Dijagram aktivnosti -  Potraživanje novih zaliha}
+\end{figure}
+
+\subsubsection{Slučaj upotrebe: Prijem novih zaliha}
+\begin{itemize}
+\item \textbf{Kratak opis:} Nakon \v{s}to se kovid ambulanti na raspolaganje stavi nova koli\v{c}ina zaliha, de\v{z}urni \v{c}lan medicinskog osoblja \v{s}alje povratnu informaciju o uskla\dj{}enosti potra\v{z}enih i pristiglih zaliha.
+\item \textbf{Učesnici:}
+\begin{itemize}
+    \item \v{C}lan medicinskog osoblja kovid ambulante
+    \item Nadle\v{z}no lice iz ministarstva zdravlja
+    \item Profesionalni vozač angažovan od strane ministarstva zdravlja
+\end{itemize}
+ \item \textbf{Preduslovi:} Sistem je aktivan.Član medicinskog osoblja i nadležno lice iz ministarstva zdravlja imaju pristup internetu.
+ \item \textbf{Postuslovi:} Kovid ambulanti su dostavljene potra\v{z}ene zalihe i podaci u sistemu su a\v{z}urirani 
+ \item \textbf{Osnovni tok:}
+ \begin{enumerate}
+    \item Ministarstvo zdravlja upu\'{c}uje transportno vozilo sa zahtevanim zalihama i vozaču predaje fizički formular  sa identifikacionim brojem zahteva na osnovu kojeg se zalihe dostavljjaju i praznim poljem za potpis primaoca i napomenu.
+   \item  Vozač prevozi robu.
+    \item Voza\v{c} \v{c}lanu medicinskog osoblja daje fizi\v{c}ki formular.
+    \item \v{C}lan medicinskog osoblja daje svoj potpis voza\v{c}u.
+    \item \v{C}lan medicinskog osoblja otvara stranicu za prihvatanje novih zaliha.
+    \item Sistem prikazuje stranicu sa formularom koji sadr\v{z}i polje za ime, prezime, jmbg i identifikacioni broj zahteva za potra\v{z}ivanje zaliha.
+    \item \v{C}lan medicinskog osoblja unosi li\v{c}ne podatke i identifikacioni broj zahteva koji se nalazi u formularu koji je dobio od voza\v{c}a.
+    \item \v{C}lan medicinskog osoblja potvr\dj{}uje unos.
+    \item Sistem vr\v{s}i validaciju unetih podataka.
+    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa informacijama o podnetom zahtevu ( informacije o vremenu podnetog zahteva, zatra\v{z}enim zalihama, povratnoj informaciji, identitetu podnosioca zahteva )
+    \item Medicinski radnik utvr\dj{}uje da li se koli\v{c}ina pristiglih zaliha poklapa sa onom koja je zahtevana.
+    \item \v{C}lan medicinskog osoblja vr\v{s}i prenos robe u skladi\v{s}te.
+    \item Voza\v{c} potpisanu  potvrdu o primljenim zalihama daje nadle\v{z}nom licu za regulisanje zaliha.
+    \item Nadle\v{z}no lice otvara stranicu logovanje u svrhu potvrde uspe\v{s}ne transakcije zaliha.
+    \item Sistem mu prikazuje stranicu sa formularom sa poljima za ime, prezime, jmbg i specijalni identifikacioni broj.
+    \item Nadle\v{z}no lice ministarstva unosi podatke i potvr\dj{}uje unos.
+    \item Sistem proverava validnost unetih podataka.
+    \item Nadle\v{z}no lice unosi informacije o transakciji zaliha (identifikacioni broj zahteva, identitet de\v{z}urnog \v{c}lana medicinskog osoblja koje je potvrdilo dostavu zatra\v{z}enih zaliha).
+    \item Sistem sve informacije o transakciji \v{c}uva i a\v{z}urira podatke vezane za preostale zalihe u odgovaraju\'{c}oj kovid ambulanti.
+ \end{enumerate}
+ \item \textbf{Alternativni tokovi:}
+ \begin{itemize}
+            \item[A1.] \textbf{Neuspe\v{s}na dodela dozvole za proveru uskla\dj{}enosti potra\v{z}enih i pristiglih zaliha.} Ukoliko u koraku 9 osnovnog toka sistem naiđe na neispravne podatke, obaveštava korisnika i zahteva ponovni unos podataka. Proces se nastavlja u koraku 5 osnovnog toka.
+	\item [A2.] \textbf{Nepoklapanje u broju zahtevanih i pristiglih zaliha.} Ukoliko je u koraku 11. uo\v{c}eno nepoklapanje pristiglih zaliha sa onom koja je zahtevana, medicinski radnik u formularu koji je potpisao u koraku broj 4. osnovnog roka upisuje napomenu o nepoklapanju. Voza\v{c} popunjen formular dostavlja nadle\v{z}nom licu iz ministarstva, proces se tu zavr\v{s}ava i neophodno je ponoviti transport.
+            \item[A3.] \textbf{Neuspe\v{s}na dodela dozvole za potvrdu uspe\v{s}ne transkacije.} Ukoliko u koraku 17. sistem utvrdi gre\v{s}ku pri autentikaciji, o tome obave\v{s}tava u\v{c}esnika. Proces se nastavlja u koraku 15. 
+        \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{Prijem_novih_zaliha}
+\caption{Dijagram aktivnosti -  Prijem novih zaliha}
+\end{figure}
+
+
 
 \subsection{Administracija}
 
@@ -799,20 +920,20 @@ Podaci o osobi koji se čuvaju su:
 Klasa Osoba povezana je sa klasom Vakcinacija vezom "prima" i sa klasom Testiranje vezom "testira".
 
 \subsection{Podaci o medicinskom osoblju}
-Klasom Medicinsko osoblje predstavljaju se radnici zdravstvenog sistema i sistema kovid ambulanti.\\ \\
-Podaci o medicinskom osoblju:
+
+\subsection{Podaci o licima iz ministarstva}
+
+Klasa Lice iz ministarstva je klasa podataka koja \v{c}uva podatke o licu iz ministarstva koje u saradnji sa na\v{s}im sistemom mo\v{z}e potra\v{z}ivati statistike kao i odgovarati na pristigle zahteve iz kovid ambulanti vezane za dostavljanje novih zaliha.
+\\~\\
+Podaci o licu iz ministarstva koji se \v{c}uvaju:
 \begin{itemize}
     \item ime
     \item prezime
     \item JMBG
+    \item identifikacioni broj
 \end{itemize}
-Klasu Medicinsko osoblje nasleđuju klase Medicinski radnik i Operater. Klasa Medicinski radnik predstavlja zaposlene koji pružaju usluge vakcinacije i testiranja.
-Podaci o medicinskom radniku:
-\begin{itemize}
-    \item id zaposlenog
-\end{itemize}
-Klasa Operater predstavlja zaposlenog u Kol centru.
-\subsection{Podaci o licima iz ministarstva}
+
+Klasa Lice iz ministarstva je u odnosu potra\v{z}uje sa klasom  Potra\v{z}ivanje statistike i u odnosu potra\v{z}uje  sa klasom Zahtev za nove zalihe.
 
 \subsection{Podaci o kovid ambulantama}
 
@@ -838,31 +959,34 @@ Takođe, radi sprovođenja statistike, ambulanta pruža usluge vraćanja sledeć
 
 \subsection{Podaci o zahtevima}
 
+Klase podataka Zahtev za nove zalihe i Potra\v{z}ivanje statistike su centralne klase podataka za eksternu razmenu podataka i sredstava. Kroz njih na\v{s} sistem realizuje funkcionalnost dostavljanja statistike ministarstvu zdravlja kao i regulisanje koli\v{c}ine dostupnih zaliha koje osobe mogu da koriste u kovid ambulantama  u svrhu za\v{s}tite od virusa COVID-19.
+\\~\\
+\noindent Podaci o zahtevu za potra\v{z}ivanje statistike su:
+
+\begin{itemize}
+    \item specijalni identifikacioni broj lica iz ministarstva specijalno dodeljen za ovaj vid transakcije
+    \item datum
+    \item redni broj opcije statistike koja se dostavlja
+\end{itemize}
+
+Klasa Lice iz ministarstva je u odnosu potra\v{z}uje sa klasom  Potra\v{z}ivanje statistike. Klasa Kovid ambulanta  povezana je asocijacijom sa klasom  Potra\v{z}ivanje statistike.
+\\~\\
+\noindent Podaci o zahtevu za nove zalihe su:
+
+\begin{itemize}
+    \item identifikacioni broj zahteva
+    \item identifikacioni broj medicinskog radnika
+    \item identifikacioni broj lica iz ministarstva koje u\v{c}estvuje u transakcji zaliha
+   \item datum
+   \item  zalihe koje se potra\v{z}uju	
+\end{itemize}
+
+Klasa Medicinski radnik je sa klasom Zahtev za nove zalihe u odnosu podnosi, a klasa Lice iz ministarstva je u odnosu potra\v{z}uje  sa klasom Zahtev za nove zalihe. 
+
+
+
+
+
 \subsection{Podaci o uslugama}
-Kovid ambulante pružaju usluge vakcinacije i testiranja. \\ \\ 
-Klasa Vakcinacija predstavlja događaj vakcinacije određene osobe. \\ \\
-Podaci o vakcinaciji:
-\begin{itemize}
-    \item datum vakcinacije
-\end{itemize}
-Klasa Testiranje predstavlja događaj testiranja određene osobe. \\ \\
-Podaci o testiranju:
-\begin{itemize}
-    \item datum testiranja
-    \item rezultat testa
-\end{itemize}
-\subsection{Podaci o vakcinama i testovima}
-Klasa Vakcina se odnosi na karakteristike dostupnih vakcina. \\ \\
-Podaci o vakcinama:
-\begin{itemize}
-    \item proizvođač 
-    \item serija
-    \item rok upotrebe
-\end{itemize}
-Klasa Test odnosi se na karakteristike dostupnih testova. \\ \\
-Podaci o testovima:
-\begin{itemize}
-    \item tip testa
-    \item rok upotrebe
-\end{itemize}
+
 \end{document}
