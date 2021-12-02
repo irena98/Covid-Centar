@@ -345,8 +345,7 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \end{enumerate}
     \item \textbf{Alternativni tokovi:}
     \begin{itemize}
-        \item[A1.] \textbf{Osoba prihvata predlo\v{z}eni termin.} Ukoliko osoba u koraku 3 prihvati vreme i mesto koje je sistem po automatizmu poslao, šalje potvrdu sistemu i proces se nastavlja u tački 7 osnovnog toka. 
-        \item[A2.] \textbf{Sistem ne prihvata zadati termin.} Ako sistem ne uspe da izvrši validaciju zadatog termina u tački 6, \v{s}alje isti formular osobi. 
+        \item[A1.] \textbf{Sistem ne prihvata zadati termin.} Ako sistem ne uspe da izvrši validaciju zadatog termina u tački 6, \v{s}alje isti formular osobi. 
         Proces se nastavlja u tački 4 osnovnog toka.
         
     \end{itemize}
@@ -376,9 +375,14 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
 	\item \textbf{Osnovni tok}:
 	\begin{enumerate}
 		\item Osoba medicinskom radniku daje svoju zdravstvenu knjižicu i ostale informacije potrebne za identifikaciju.
-		\item Proverava se da li je osoba prijavljena za vakcinaciju.
+		\item Medicinski radnik proverava da li je osoba prijavljena za vakcinaciju.
+		\item Osoba potpisuje saglasnost.
 		\item Medicinski radnik vaksiniše osobu.
-		\item Medicinski radnik upisuje potrebne informacije u sistem.
+		\item Medicinski radnik evidentira da je osoba vakcinisana.
+	\end{enumerate}
+	\item \textbf{Alternativni tokovi}:
+	\begin{enumerate}
+		\item[A1.] Ako osoba ne želi da potpiše saglanost u koraku 3 osnovnog toga onda ona neće ni biti vakcinisana. 
 	\end{enumerate}
 \end{itemize}
 
@@ -484,10 +488,9 @@ U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču kor
  \item \textbf{Osnovni tok:}
  \begin{enumerate}
     \item Osoba poziva broj telefona kol centra.
-    \item Neki od trenutno slobodnih operatera se dodeljuje osobi za vreme poziva.
+    \item Sistem preusmerava poziv prvom slobodnom operateru.
     \item Osoba i operater otpočinju razgovor u kom operater odgovara na postavljena pitanja.
     \item Razgovor se završava.
-    \item Sistem ažurira podatke o simptomima i tegobama.
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
