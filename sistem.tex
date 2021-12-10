@@ -336,22 +336,32 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \begin{enumerate}
         \item Sistem pristupa podacima o vakcinisanima. Sistem ovu operaciju izvodi automatski, svakog dana u podne.
         \item Sistem predla\v{z}e vreme i mesto vakcinacije drugom dozom vakcine koja je već primljena prvi put.
-        \item Osoba ne prihvata vreme i mesto vakcinacije.
+        \item Osoba razmatra o vremenu i mestu vakcinacije.
+        \begin{itemize}
+            \item Osoba prihvata vreme i mesto vakcinacije.
+            \item Osoba ne prihvata vreme i mesto vakcinacije.
+        \end{itemize}
+        \item 
+        \begin{itemize}
+            \item Ukoliko osoba prihvati vreme i mesto vakcinacije, izvršavanje se nastavlja u koraku 5 osnovnog toka.
+            \item Ukoliko osoba ne prihvati vreme i mesto vakcinacije, izvršava se podtok P1.
+        \end{itemize}
+        \item Sistem a\v{z}urira podatke o zakazanim terminima.
+        \item Sistem obave\v{s}tava osobu da je termin zakazan.
+        
+    \end{enumerate}
+    \item \textbf{Podtokovi:}
+    \begin{itemize}
+        \item[P1.] Osoba ne prihvata termin vakcinacije. 
+        \begin{enumerate}
         \item Sistem šalje formular osobi kako bi odabrala vreme i mesto vakcinacije
         \item Osoba upisuje vreme i mesto vakcinacije.
         \item Sistem validira unete podatke.
-        \item Sistem obave\v{s}tava osobu da je termin zakazan.
-        \item Sistem a\v{z}urira podatke o zakazanim terminima (paralelno sa korakom 7).
-    \end{enumerate}
-    \item \textbf{Alternativni tokovi:}
-    \begin{itemize}
-        \item[A1.] \textbf{Sistem ne prihvata zadati termin.} Ako sistem ne uspe da izvrši validaciju zadatog termina u tački 6, \v{s}alje isti formular osobi. 
-        Proces se nastavlja u tački 4 osnovnog toka.
-        
+        \end{enumerate}
     \end{itemize}
     \item \textbf{Dodatne informacije:}
     \begin{itemize}
-        \item Sistem treba ponuditi mogućnosti osobi koja želi da popuni formular, u vidu spiska lokacija Kovid-ambulanti i spiska termina (datum i vreme - na svakih pola sata u okviru radnog vremena).
+        \item Sistem treba ponuditi mogućnosti osobi koja želi da popuni formular, u vidu spiska lokacija Kovid-ambulanti i spiska dostupnih termina.
     \end{itemize}
 \end{itemize}
 
@@ -656,9 +666,7 @@ U ovom poglavlju se bavimo formalizacijom procesa testiranja registrovanih osoba
            \item Osoba potpisuje formular.
            \item Radnik upisuje podatke o osobi sa formulara.
            \item Osoba ide na testiranje.
-           \item Radnik čeka rezultate.
-           \item Nakon čekanja rezultata, radnik šalje osobi rezultate testa na mejl sa formulara.
-           \item Osoba dobija mejl.
+           \item Radnik čeka rezultate. Nakon čekanja rezultata, radnik šalje osobi rezultate testa na mejl sa formulara.
            \item Radnik ažurira bazu podataka. Sistem je ažuriran.
         \end{enumerate}
     \item \textbf{Specijalni zahtevi:}
