@@ -1117,6 +1117,31 @@ Podaci o testovima:
 
 \section{Softverska arhitektura}
 
+Informacioni sistem za "Kovid sistem" sačinjen je od sledeća četiri podsistema:
+\begin{enumerate}
+    \item \textbf{Kovid ambulanta} - sadrži komponente koje omogućavaju unos i praćenje informacija u sistemu.
+	\begin{itemize}
+        	\item Evidentiranje - omogućava unos podataka od strane medicinskog radnika.
+        	\item Autentikacija - omogućava pristup sistemu i korišćenje njegovih usluga.
+    	\end{itemize}
+    \item \textbf{Ministarstvo zdravlja} - sadrži komponente koje omogućavaju korišćenje sistema licima iz ministarstva.
+	\begin{itemize}
+        	\item Informisanje - omogućava preuzimanje statistike iz podataka.
+        	\item Autentikacija - omogućava pristup sistemu i bezbedno korišćenje njegovih funkcionalnosti licima iz ministarstva.
+    	\end{itemize}
+    \item \textbf{Nalozi} - sadrži komponente koje omogućavaju upravljanje nalozima svim korisnicima.
+	\begin{itemize}
+        	\item Korisnici - osobe - omogućava regulisanje registracije i prijave osobe i davanje termina korisniku.
+        	\item Korisnici - medicinsko osoblje - omogućava upravljanje nalozima medicinskog osoblja koje učestvuju u informacionom sistemu.
+        	\item Korisnici - ministarstvo zdravlja - omogućava upravljanje nalozima lica iz ministarstva zdravlja koje koriste informacioni sistem.
+    	\end{itemize}
+     \item \textbf{Podaci} - sadrži komponente koje omogućavaju upravljanje podacima iz baze podataka.
+	\begin{itemize}
+        	\item Statistika - pruža dostupnost podataka koji se po potrebi mogu preuzeti.
+        	\item Kovid propusnice - omogućava izdavanje i validaciju kovid propusnice.
+    	\end{itemize}
+\end{enumerate}
+
 
 
 
