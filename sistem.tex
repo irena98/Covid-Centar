@@ -701,7 +701,7 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
     \item \textbf{Kratak opis:} Medicinski radnik na osnovu pozitivnog PCR testa šalje osobi instrukcije o izolaciji i ažurira informacioni sistem kako bi se zaražene osobe mogle pratiti u narednom periodu.
     \item \textbf{Učesnici:}
         \begin{itemize}
-            \item Medicinski radnik.
+            \item Medicinski radnik
         \end{itemize}
     \item \textbf{Preduslovi:} Sistem je aktivan. Medicinski radnik ima dozvolu za menjanje podataka o zaraženim licima.
     \item \textbf{Postuslovi:} Sistem obaveštava radnika o uspešnosti izmena.
@@ -718,19 +718,14 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
         \begin{itemize}
             \item [A1.] \textbf{Neuspešan unos podataka.} Ukoliko u koraku 5 glavnog toka sistem obavesti radnika da podaci o zaraženom nisu validni, baza podataka o zaraženima ostaje neizmenjena i proces se završava.
         \end{itemize}
-    \item \textbf{Dodatne informacije:}
-    \begin{itemize}
-        \item 
-    \end{itemize}
 \end{itemize}
 \subsubsection{Slučaj upotrebe: Provera poštovanja izolacije}
 \begin{itemize}
     \item \textbf{Kratak opis:} Osoba se poziva iz kol centra kako bi se ispratilo njeno poštovanje mera kućne izolacije.
     \item \textbf{Učesnici:}
         \begin{itemize}
-            \item Zaražena osoba.
-            
-            \item Operater.
+            \item Zaražena osoba
+            \item Operater
         \end{itemize}
     \item \textbf{Preduslovi:} Sistem je aktivan. Osoba poseduje mobilni ili fiksni telefon.
     \item \textbf{Postuslovi:} Operater dobija tačne informacije o ponašanju osobe koja treba da je u izolaciji.
@@ -747,7 +742,6 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
     \item\textbf{Alternativni tokovi:}
         \begin{itemize}
             \item[A1.] \textbf{Operater nema dozvolu za pristup.} Ukoliko u koraku 3 sistem ne odobri pristup, proces se završava.
-            \item[A2.] \textbf{}
         \end{itemize}
     \item \textbf{Dodatne informacije:}
         \begin{itemize}
@@ -757,13 +751,23 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
 \end{itemize}
 \subsubsection{Slučaj upotrebe: Produžavanje izolacije}
 \begin{itemize}
-    \item \textbf{Kratak opis: Nakon isteka predviđenih mera kućne izolacije, osoba se poziva na ponovno testiranje kako bi se utvrdilo da li izolaciju treba nastaviti.}
+    \item \textbf{Kratak opis:} Nakon isteka predviđenih mera kućne izolacije, osoba se poziva na ponovno testiranje kako bi se utvrdilo da li izolaciju treba nastaviti.
     \item \textbf{Učesnici:}
-    \item \textbf{Preduslovi:}
-    \item \textbf{Postuslovi:}
+        \begin{itemize}
+            \item Operater
+        \end{itemize}
+    \item \textbf{Preduslovi:} Sistem je aktivan. Operater je autorizovan za pristup podacima o zaraženima.
+    \item \textbf{Postuslovi:} Operater je obavestio osobu o ponovnom testiranju.
     \item \textbf{Osnovni tok:}
-    \item\textbf{Alternativni tokovi:}
-    \item \textbf{Dodatne informacije:}
+        \begin{enumerate}
+            \item Operater otvara stranicu za logovanje.
+            \item Operater unosi svoje podatke i potvrđuje unos.
+            \item Sistem odobrava pristup.
+            \item Operater zahteva podatke o zaraženima.
+            \item Sistem prikazuje tražene podatke.
+            \item Operater bira osobu kojoj je tog dana istekla kućna izolacija.
+            \item Operater pronalazi podatke o osobi i pozivom je obaveštava da je potrebno ponovno testiranje.
+        \end{enumerate}
 \end{itemize}
 
 \subsection{Dobavljanje medicinskih sredstava}
@@ -1111,7 +1115,7 @@ Podaci o testovima:
     \item rok upotrebe
 \end{itemize}
 
-
+\section{Softverska arhitektura}
 
 
 
