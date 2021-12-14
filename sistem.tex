@@ -1153,6 +1153,14 @@ Na Slici \ref{slk:komponente} prikazan je dijagram komponenti arhitekture sistem
 
 Informacioni sistem je podeljen na server baze podataka i aplikacioni server koji komuniciraju pomoću TCP/IP protokola. Na serveru baze podataka se nalazi MySQL okruženje i baza sadrži tri sheme: Korisnici, Statistika i Ambulanta. Na aplikacionom serveru se koristi JSP server Tomcat 8 Catalina Servlet 3.1 i na njemu se izvršava aplikacija kovid\_centar.war. Aplikacija, između ostalog, implementira komponentu Evidentiranje. Konfiguracioni fajl aplikacije je web.xml. Deo aplikacije korisnicki\_servis1.jar implementira komponentu Korisnik - medicinsko osoblje, deo korisnicki\_servis2.jar implementira komponentu Korisnik - osoba, a deo korisnicki\_servis3.jar implementira komponentu Korisnik - ministarstvo. Aplikacija koristi biblioteku web\_tool\_lib.jar. Na Slici \ref{slk:isporucivanje} je prikazan dijagram isporučivanja sistema.
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{DijagramIsporucivanja}
+\caption{Dijagram isporucivanja - softverska arhitektura}
+\label{slk:isporucivanje}
+\end{figure}
+
+
 
 
 \end{document}
