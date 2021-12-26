@@ -48,7 +48,7 @@ Informacioni sistem Kovid centar svojim funkcionalnostima obezbe\dj{}uje sigurno
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{DTP_dijagram}
+\includegraphics[scale=0.6]{Dijagram_toka_podataka}
 \caption{Dijagram toka podataka nivoa 0}
 \label{slk:dtp}
 \end{figure}
@@ -411,7 +411,7 @@ U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču kor
 
 \subsubsection{Slučaj upotrebe: Sprovođenje statistike}
 \begin{itemize}
-\item \textbf{Kratak opis:} \v{C}lan medicinskog osoblja sakupljene podatke o vakcinaciji i testiranju svih korisnika prosle\dj{}uje spolja\v{s}njem zdravstvenom sistemu  koji dalje rukuje  podacima.
+\item \textbf{Kratak opis:} \v{C}lan medicinskog osoblja jednom dnevno sakupljene podatke o vakcinaciji i testiranju svih korisnika za taj dan prosle\dj{}uje spolja\v{s}njem zdravstvenom sistemu  koji dalje rukuje  podacima.
 \item \textbf{Učesnici:}
 \begin{itemize}
     \item \v{C}lan medicinskog osoblja.
@@ -431,7 +431,8 @@ U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču kor
     \item \v{C}lan medicinskog osoblja klikom na dugme potvr\dj{}uje akciju.
     \item Sistem vr\v{s}i validaciju unete mail adrese.
    \item Sistem sa mail adrese prijavljenog \v{c}lana medicinskog osoblja \v{s}alje mejl sa statistikom na unetu adresu koja pripada  nadle\v{z}nom licu iz spoljnog zdravstvenog sistema.
-
+   \item Sistem \v{c}uva podatke o datumu i vremenu prosle\dj{}ivanja podataka.
+ 
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
@@ -730,7 +731,7 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
  \item \textbf{Osnovni tok:}
  \begin{enumerate}
     \item \v{C}lan medicinskog osoblja otvara stranicu za podno\v{s}enje zahteva.
-    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa formularom za podno\v{s}enje zahteva koji je formatiran tako da se pored svakog od proizvo\dj{}a\v{c}a nalazi polje za unos broja zahtevanih vakcina  odgovaraju\'{c}eg proizvo\dj{}a\v{c}a i polja za unos broja zahtevanih PCR i andtigenskih testova.  
+    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa formularom za podno\v{s}enje zahteva koji je formatiran tako da se pored svakog od proizvo\dj{}a\v{c}a nalazi polje za unos broja zahtevanih vakcina  odgovaraju\'{c}eg proizvo\dj{}a\v{c}a i polja za unos broja zahtevanih PCR i andtigenskih testova, kao prazno polje za mejl adresu nadle\v{z}nog lica spoljnog zdravstvenog sistema kojem \'{c}e zahtev biti upu\'{c}en.
     \item \v{C}lan medicinskog osoblja popunjava formular i potvr\dj{}uje unos.
     \item Sistem proverava ispravnost popunjenog formulara.
     \item Sistem podnetom zahtevu dodeljuje identifikacioni broj. 
@@ -759,9 +760,10 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
     \item \v{C}lan medicinskog osoblja otvara stranicu za prihvatanje novih zaliha.
    \item Sistem prikazuje stranicu sa praznim poljem za unos identifikacionog broja zahteva.
     \item \v{C}lan medicinskog osoblja u to prazno polje upisuje identifikacioni broj zahteva na osnovu kojeg je trasnportno vozilo pristiglo i potvr\dj{}uje unos.
-    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa informacijama o podnetom zahtevu ( informacije o vremenu podnetog zahteva, zatra\v{z}enim zalihama)
+    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa informacijama o podnetom zahtevu ( informacije o vremenu podnetog zahteva, zatra\v{z}enim zalihama) kao i dugmetom za potvrdu izvr\v{s}ene transakcije
     \item Medicinski radnik utvr\dj{}uje da li se koli\v{c}ina pristiglih zaliha poklapa sa onom koja je zahtevana.
     \item \v{C}lan medicinskog osoblja vr\v{s}i prenos robe u skladi\v{s}te.
+    \item \v{C}lan medicniskog osoblja klik\'{c}e na dugme za potvrdu.
     \item Sistem informacije o transakciji \v{c}uva i a\v{z}urira podatke vezane za preostale zalihe u kovid ambulanti.
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
@@ -861,7 +863,7 @@ Na osnovu opisanih slučajeva upotrebe, zaključeno je da je u bazi podataka pot
 Na Slici \ref{slk:dijagram_klasa} je prikazan model baze podataka korišćenjem UML dijagrama klasa.
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{Dijagrami_slike/Dijagram_klasa_podataka.JPG}
+	\includegraphics[scale=0.3]{Dijagram_klase_podatakaNOVI}
 	\caption{Dijagram klasa podataka}
 	\label{slk:dijagram_klasa}
 \end{figure}
@@ -981,6 +983,7 @@ Podaci o testovima:
     \item rok upotrebe
 \end{itemize}
 
+
 \section{Softverska arhitektura}
 
 Informacioni sistem za "Kovid sistem" sačinjen je od sledeća četiri podsistema:
@@ -1012,7 +1015,7 @@ Na Slici \ref{slk:komponente} prikazan je dijagram komponenti arhitekture sistem
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.65]{Dijagram_komponenti_NOVI1}
+\includegraphics[scale=0.4]{Dijagram_komponenti_NOVI1}
 \caption{Dijagram komponenti - softverska arhitektura}
 \label{slk:komponente}
 \end{figure}
@@ -1021,7 +1024,7 @@ Informacioni sistem je podeljen na server baze podataka i aplikacioni server koj
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{Dijagram_isporucivanjaNOVI}
+\includegraphics[scale=0.35]{Dijagram_isporucivanjaNOVI}
 \caption{Dijagram isporucivanja - softverska arhitektura}
 \label{slk:isporucivanje}
 \end{figure}
@@ -1065,19 +1068,6 @@ U nastavku se nalaze skice korisni\v{c}kog interfejsa:
 \label{slk:komponente}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.3]{ministarstvo-prijava}
-\caption{Korisni\v{c}ki interfejs - strana za prijavljivanje lica iz ministarstva}
-\label{slk:komponente}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.3]{ministarstvo-dohvatanje}
-\caption{Korisni\v{c}ki interfejs - strana za dohvatanje statistike}
-\label{slk:komponente}
-\end{figure}
 
 \begin{figure}[H]
 \centering
