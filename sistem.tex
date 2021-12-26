@@ -439,16 +439,16 @@ U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču kor
 		\item Veli\v{c}inu .xlsx fajla u koji \'{c}e statistika biti upisana
 		\item Prazno polje za unos mail adrese na koju \'{c}e statistika biti upu\'{c}ena
 	\end{itemize}
-    \item \v{C}lan medincskog osoblja popunjava prazno polje mail adresom.
+    \item \v{C}lan medincskog osoblja popunjava prazno polje mejl adresom.
     \item \v{C}lan medicinskog osoblja klikom na dugme potvr\dj{}uje akciju.
-    \item Sistem vr\v{s}i validaciju unete mail adrese.
-   \item Sistem sa mail adrese prijavljenog \v{c}lana medicinskog osoblja \v{s}alje mejl sa statistikom na unetu adresu koja pripada  nadle\v{z}nom licu iz spoljnog zdravstvenog sistema.
+    \item Sistem vr\v{s}i validaciju unete mejl adrese.
+   \item Sistem sa mejl adrese prijavljenog \v{c}lana medicinskog osoblja \v{s}alje mejl sa statistikom na unetu adresu koja pripada  nadle\v{z}nom licu iz spoljnog zdravstvenog sistema.
    \item Sistem \v{c}uva podatke o datumu i vremenu prosle\dj{}ivanja podataka.
  
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
-            \item[A1.] \textbf{Unos neispravne mail adresea.} Ukoliko u koraku 4 osnovnog toka sistem utvrdi da uneta mejl adresa ne pripada  licu iz spoljnog zdravstvenog sistema koje je nadle\v{z}no za prihvatanje statistike, u\v{c}esnik o tome biva obave\v{s}ten i proces se nastavlja u koraku 3 osnovnog toka.
+            \item[A1.] \textbf{Unos neispravne mejl adrese.} Ukoliko u koraku 4 osnovnog toka sistem utvrdi da uneta mejl adresa ne pripada  licu iz spoljnog zdravstvenog sistema koje je nadle\v{z}no za prihvatanje statistike, u\v{c}esnik o tome biva obave\v{s}ten i proces se nastavlja u koraku 3 osnovnog toka.
         \end{itemize}
 \end{itemize}
 \subsubsection{Slučaj upotrebe: Kol centar}
@@ -741,7 +741,7 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
     \item \v{C}lan medicinskog osoblja popunjava formular i potvr\dj{}uje unos.
     \item Sistem proverava ispravnost popunjenog formulara.
     \item Sistem podnetom zahtevu dodeljuje identifikacioni broj. 
-    \item Sistem \v{s}alje zahtev u pdf formatu sa mail adrese prijavljenog \v{c}lana medicinskog osoblja na adresu nadle\v{z}nog lica iz spoljnog zdravstvenog sistema.
+    \item Sistem \v{s}alje zahtev u pdf formatu sa mejl adrese prijavljenog \v{c}lana medicinskog osoblja na mejl adresu nadle\v{z}nog lica iz spoljnog zdravstvenog sistema.
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
@@ -932,7 +932,7 @@ Takođe, radi prosle\dj{}ivanja podataka, ambulanta pruža usluge vraćanja sled
 
 \subsection{Podaci o zahtevu za dobijanje novih zaliha}
 
-Klasa podataka Zahtev za dobiijanje novih zaliha je centralna klase podataka za eksternu razmenu  sredstava. Kroz nju na\v{s} sistem realizuje funkcionalnost  regulisanja koli\v{c}ine dostupnih zaliha koje osobe mogu da koriste u kovid ambulanti  u svrhu za\v{s}tite od virusa COVID-19.
+Klasa podataka Zahtev za dobiijanje novih zaliha je centralna klasa podataka za eksternu razmenu  sredstava. Kroz nju na\v{s} sistem realizuje funkcionalnost  regulisanja koli\v{c}ine dostupnih zaliha koje osobe mogu da koriste u kovid ambulanti  u svrhu za\v{s}tite od virusa COVID-19.
 \\~\\
 
 \noindent Podaci o zahtevu za nove zalihe su:
@@ -944,11 +944,11 @@ Klasa podataka Zahtev za dobiijanje novih zaliha je centralna klase podataka za 
 \end{itemize}
 
 
-Klasa Medicinski radnik je sa klasom Zathtev za dobijanje novih zaliha  u odnosu podnosi. 
+Klasa Medicinski radnik je sa klasom Zahtev za dobijanje novih zaliha  u odnosu podnosi. 
 
 \subsection{Podaci o prosle\dj{}ivanju podataka}
 
-Klasa podataka Prosl\dj{}ivanje podataka je centralna klase podataka za eksternu razmenu podataka. Kroz nju na\v{s} sistem realizuje funkcionalnost  prosle\dj{}ivanja podataka spoljnom nadle\v{z}nom  zdravstvenom sistemu.
+Klasa podataka Prosl\dj{}ivanje podataka je centralna klasa podataka za eksternu razmenu podataka. Kroz nju na\v{s} sistem realizuje funkcionalnost  prosle\dj{}ivanja podataka spoljnom nadle\v{z}nom  zdravstvenom sistemu.
 \\~\\
 
 \noindent Podaci o prosle\dj{}ivanju podataka
