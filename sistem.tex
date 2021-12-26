@@ -141,12 +141,11 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
         \begin{itemize}
             \item Neprijavljena osoba - želi da se prijavi za prvu dozu vakcine.
         \end{itemize}
-    \item \textbf{Preduslovi:} Sistem je aktivan. Neprijavljena osoba je registorvana kao korisnik sistema i ima pristup internetu.
+    \item \textbf{Preduslovi:} Sistem je aktivan. Neprijavljena osoba je registorvana kao korisnik sistema i ima pristup internetu. Osoba je uspešno ulogovana na sistem.
     \item \textbf{Postuslovi:} Korisnik je dobio potvrdu o zakazanom terminu i mestu prve vakcinacije.
     \item \textbf{Osnovni tok:}
         \begin{enumerate}
-            \item Osoba otvara web-stranicu za logovanje.
-	    \item Osoba unosi i potvrđuje korisničko ime i lozinku.
+            \item Osoba pristupa delu sistema za online prijavu.
             \item Sistem prikazuje formular za prijavu.
             \item Osoba bira ponuđene ustanove i proizvođače vakcina.
             \item Osoba potvrđuje unos.
@@ -193,26 +192,19 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \item \textbf{Postuslovi:} Osoba je dobila potvrdu o zakazanom terminu i mestu prve vakcinacije.
     \item \textbf{Osnovni tok:}
         \begin{enumerate}
-            \item Osoba dolazi na informacioni pult i izjavljuje da želi da se vakciniše.
-	    \item Medicinski radnik na pultu odlazi na deo sistema koji je predviđen za registraciju novih korisnika.
-	    \item Osoba daje potrebne informacije za registraciju, zdravstvenu knjižicu i neki lični dokument za evidenciju medicinskom radniku.
-	    \item Medicinski radnik unosi podatke u sistem.
-	    \item Medicinski radnik potvrđuje unos.
+	    \item Osoba na informacionom pultu daje potrebne informacije za registraciju, zdravstvenu knjižicu i neki lični dokument za evidenciju medicinskom radniku.
+	    \item Medicinski radnik unosi podatke u sistem i potvrđuje unos.
 	    \item Sistem vrši validaciju podataka.
-            \item Sistem čuva podatke.
-            \item Sistem prikazuje informacije o nalogu koji kreira i traži potvrdu registracije.
+            \item Sistem čuva podatke i prikazuje informacije o nalogu koji kreira i traži potvrdu registracije.
 	    \item Medicinski radnik nakon provere podataka potvrđuje registraciju osobe.
             \item Sistem obaveštava da je osoba uspešno registrovana.
-	    \item Medicinski radnik od osobe traži da odabere ustanove i proizvođače vakcina.
-	    \item Osoba obaveštava medicinskog radnika o odgovarajućim ustanovama i proizvođačima vakcine.
+	    \item Medicinski radnik od osobe traži da odabere ustanove i proizvođače vakcina i osoba se izjašnjava po tom pitanju.
 	    \item Medicinski radnik unosi podatke u sistem i potvrđuje.
-	    \item Sistem dajte pregled slobodnih termina.
-            \item Medicinski radnik obaveštava osobu o slobodnim terminima.
-	    \item Osoba bira termin.
+	    \item Sistem daje pregled slobodnih termina.
+            \item Medicinski radnik obaveštava osobu o slobodnim terminima i osoba bira termin.
 	    \item Medicinski radnik bira odgovarajući termin u sistemu i potvrđuje.
             \item Sistem zakazuje termin vakcinacije.
-	    \item Sistem osobi šalje email sa potvrdom o zakazanom terminu.
-            \item Sistem obaveštava medicinskog radnika da je operacija uspešno izvršena i da je potvrda poslata.
+	    \item Sistem osobi šalje email sa potvrdom o zakazanom terminu i obaveštava korisnika sistema o uspešnom zakazivanju termina.
 	    \item Medicinski radnik obaveštava osobu da je operacija uspešno izvršena i da je potvrda poslata na njen email.
 	\end{enumerate}
      
@@ -222,8 +214,8 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     %Alternativne tokove nazivati sa A1, A2, ...
     \item \textbf{Alternativni tokovi:}
         \begin{itemize}
-            \item[A1.] \textbf{Neuspešna validacija podataka.} Ukoliko u koraku 6 osnovnog toka sistem naiđe na neispravne podatke, obaveštava medicinskog radnika i zahteva ponovni unos onih polja gde su nevalidni podaci. Pri čemu označava polja sa nevalidnim podacima. Kada medicinski radnik unese sve podatke ispravno, proces se nastavlja u koraku 5 osnovnog toka.
-	     \item[A2.] \textbf{Nema slobodnih termina.} Ukoliko u koraku 14 osnovnog toka medicinski radnik dobije obaveštenje od sistema da nema slobodnih termina za zadate ustanove i vakcine, on informaciju prenosi osobi i proces se nastavlja u koraku 11 osnovnog toka.
+            \item[A1.] \textbf{Neuspešna validacija podataka.} Ukoliko u koraku 3 osnovnog toka sistem naiđe na neispravne podatke, obaveštava medicinskog radnika i zahteva ponovni unos onih polja gde su nevalidni podaci. Pri čemu označava polja sa nevalidnim podacima. Kada medicinski radnik unese sve podatke ispravno, proces se nastavlja u koraku 4 osnovnog toka.
+	     \item[A2.] \textbf{Nema slobodnih termina.} Ukoliko u koraku 9 osnovnog toka medicinski radnik dobije obaveštenje od sistema da nema slobodnih termina za zadate ustanove i vakcine, on informaciju prenosi osobi i proces se nastavlja u koraku 7 osnovnog toka.
         \end{itemize}
     
     %Ako postoje, specijalne zahteve navesti ovde
