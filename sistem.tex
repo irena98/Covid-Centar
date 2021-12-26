@@ -424,14 +424,14 @@ U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču kor
  \item \textbf{Postuslovi:} Sakupljeni podaci su stavljeni na raspolaganje spolja\v{s}njem zdravstvenom sistemu.
  \item \textbf{Osnovni tok:}
  \begin{enumerate}
-    \item \v{C}lan medicinskog osoblja otvara stranicu za prosle\dj{}ivanje statistike
+    \item \v{C}lan medicinskog osoblja otvara stranicu za prosle\dj{}ivanje statistike.
     \item Sistem prikazuje op\v{s}te informacije o grupi podataka koja je spremna za prosle\dj{}ivanje i to: 
 	 \begin{itemize}
 		\item Vremenski period koji obuhvata
 		\item Veli\v{c}inu .xlsx fajla u koji \'{c}e statistika biti upisana
-		\item Prazno polje za unos mail adrese na koju \'{c}e statistika biti upu\'{c}ena
+		\item Prazno polje za unos mail adrese na koju \'{c}e statistika biti upu\'{c}ena.
 	\end{itemize}
-    \item \v{C}lan medincskog osoblja popunjava prazno polje mejl adresom.
+    \item \v{C}lan medicinskog osoblja popunjava prazno polje mejl adresom.
     \item \v{C}lan medicinskog osoblja klikom na dugme potvr\dj{}uje akciju.
     \item Sistem vr\v{s}i validaciju unete mejl adrese.
    \item Sistem sa mejl adrese prijavljenog \v{c}lana medicinskog osoblja \v{s}alje mejl sa statistikom na unetu adresu koja pripada  nadle\v{z}nom licu iz spoljnog zdravstvenog sistema.
@@ -440,7 +440,7 @@ U ovom poglavlju se bavimo predstavljanjem slučajeva upotrebe koji se tiču kor
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
-            \item[A1.] \textbf{Unos neispravne mejl adrese.} Ukoliko u koraku 4 osnovnog toka sistem utvrdi da uneta mejl adresa ne pripada  licu iz spoljnog zdravstvenog sistema koje je nadle\v{z}no za prihvatanje statistike, u\v{c}esnik o tome biva obave\v{s}ten i proces se nastavlja u koraku 3 osnovnog toka.
+            \item[A1.] \textbf{Unos neispravne mejl adrese.} Ukoliko u koraku 5 osnovnog toka sistem utvrdi da uneta mejl adresa ne pripada  licu iz spoljnog zdravstvenog sistema koje je nadle\v{z}no za prihvatanje statistike, u\v{c}esnik o tome biva obave\v{s}ten i proces se nastavlja u koraku 2 osnovnog toka.
         \end{itemize}
 \end{itemize}
 \subsubsection{Slučaj upotrebe: Kol centar}
@@ -729,7 +729,7 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
  \item \textbf{Osnovni tok:}
  \begin{enumerate}
     \item \v{C}lan medicinskog osoblja otvara stranicu za podno\v{s}enje zahteva.
-    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa formularom za podno\v{s}enje zahteva koji je formatiran tako da se pored svakog od proizvo\dj{}a\v{c}a nalazi polje za unos broja zahtevanih vakcina  odgovaraju\'{c}eg proizvo\dj{}a\v{c}a i polja za unos broja zahtevanih PCR i andtigenskih testova, kao prazno polje za mejl adresu nadle\v{z}nog lica spoljnog zdravstvenog sistema kojem \'{c}e zahtev biti upu\'{c}en.
+    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa formularom za podno\v{s}enje zahteva koji je formatiran tako da se pored svakog od proizvo\dj{}a\v{c}a nalazi polje za unos broja zahtevanih vakcina  odgovaraju\'{c}eg proizvo\dj{}a\v{c}a i polja za unos broja zahtevanih PCR i antigenskih testova, kao i prazno polje za unos mejl adrese nadle\v{z}nog lica spoljnog zdravstvenog sistema kojem \'{c}e zahtev biti upu\'{c}en.
     \item \v{C}lan medicinskog osoblja popunjava formular i potvr\dj{}uje unos.
     \item Sistem proverava ispravnost popunjenog formulara.
     \item Sistem podnetom zahtevu dodeljuje identifikacioni broj. 
@@ -737,7 +737,7 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
-            \item[A1.] \textbf{Neispravno podno\v{s}enje zahteva.} Ukoliko u koraku 4 osnovnog toka sistem utvrdi da \v{c}lan medicinskog osoblja nije popunio formular kako je predvi\dj{}eno, on o tome biva obave\v{s}teno. Proces se nastavlja u koraku 3 osnovnog toka. 
+            \item[A1.] \textbf{Neispravno podno\v{s}enje zahteva.} Ukoliko u koraku 4 osnovnog toka sistem utvrdi da \v{c}lan medicinskog osoblja nije popunio formular kako je predvi\dj{}eno, on o tome biva obave\v{s}ten. Proces se nastavlja u koraku 3 osnovnog toka. 
         \end{itemize}
 \end{itemize}
 
@@ -747,26 +747,26 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
 \item \textbf{Kratak opis:} Nakon \v{s}to nadle\v{z}ni spoljni zdrastveni sistem po\v{s}alje potra\v{z}ivane zalihe, \v{c}lan medicinskog osoblja prenosi robu u lokalno skladi\v{s}te i evidentira informacije o transakciji.
 \item \textbf{Učesnici:}
 \begin{itemize}
-    \item \v{C}lan medicinskog osoblja kovid ambulante
+    \item \v{C}lan medicinskog osoblja kovid ambulante.
 \end{itemize}
  \item \textbf{Preduslovi:} Sistem je aktivan.Član medicinskog osoblja je prijavljen na sistem i ima pristup internetu.
- \item \textbf{Postuslovi:} Kovid ambulanti su dostavljene potra\v{z}ene zalihe i podaci u sistemu su a\v{z}urirani 
+ \item \textbf{Postuslovi:} Kovid ambulanti su dostavljene potra\v{z}ene zalihe i podaci u sistemu su a\v{z}urirani.
  \item \textbf{Osnovni tok:}
  \begin{enumerate}
     \item Transportno vozilo sa potra\v{z}ivanim zalihama je stiglo na adresu kovid ambulante.
-    \item Voza\v{c} informaciju o identifikacionom broju zahteva na osnovu kojeg su zalihe dostavljene predaje \v{c}lanu medicinskog osoblja
+    \item Voza\v{c} informaciju o identifikacionom broju zahteva na osnovu kojeg su zalihe dostavljene predaje \v{c}lanu medicinskog osoblja.
     \item \v{C}lan medicinskog osoblja otvara stranicu za prihvatanje novih zaliha.
    \item Sistem prikazuje stranicu sa praznim poljem za unos identifikacionog broja zahteva.
     \item \v{C}lan medicinskog osoblja u to prazno polje upisuje identifikacioni broj zahteva na osnovu kojeg je trasnportno vozilo pristiglo i potvr\dj{}uje unos.
-    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa informacijama o podnetom zahtevu ( informacije o vremenu podnetog zahteva, zatra\v{z}enim zalihama) kao i dugmetom za potvrdu izvr\v{s}ene transakcije
+    \item Sistem \v{c}lanu medicinskog osoblja prikazuje stranicu sa informacijama o podnetom zahtevu ( informacije o vremenu podnetog zahteva, zatra\v{z}enim zalihama) kao i dugme za potvrdu izvr\v{s}ene transakcije.
     \item Medicinski radnik utvr\dj{}uje da li se koli\v{c}ina pristiglih zaliha poklapa sa onom koja je zahtevana.
     \item \v{C}lan medicinskog osoblja vr\v{s}i prenos robe u skladi\v{s}te.
-    \item \v{C}lan medicniskog osoblja klik\'{c}e na dugme za potvrdu.
+    \item \v{C}lan medicinskog osoblja klik\'{c}e na dugme za potvrdu.
     \item Sistem informacije o transakciji \v{c}uva i a\v{z}urira podatke vezane za preostale zalihe u kovid ambulanti.
  \end{enumerate}
  \item \textbf{Alternativni tokovi:}
  \begin{itemize}
-	\item [A1.] \textbf{Nepoklapanje u broju zahtevanih i pristiglih zaliha.} Ukoliko je u koraku 7  uo\v{c}eno nepoklapanje pristiglih zaliha sa onom koja je zahtevana, o tome obaveve\v{s}tava spoljni nadle\v{z}ni zdravstveni sistem, zahtev automatski biva ponovo napravljen, sa novim identifikacionim brojem, a transportno vozilo sa dostavljenom robom biva vra\'{c}eno.
+	\item [A1.] \textbf{Nepoklapanje u broju zahtevanih i pristiglih zaliha.} Ukoliko je u koraku 7  uo\v{c}eno nepoklapanje pristiglih zaliha sa onom koja je zahtevana, o tome se obave\v{s}tava spoljni nadle\v{z}ni zdravstveni sistem, zahtev automatski biva ponovo napravljen, sa novim identifikacionim brojem, a transportno vozilo sa dostavljenom robom biva vra\'{c}eno.
         \end{itemize}
 \end{itemize}
 
@@ -940,7 +940,7 @@ Klasa Medicinski radnik je sa klasom Zahtev za dobijanje novih zaliha  u odnosu 
 
 \subsection{Podaci o prosle\dj{}ivanju podataka}
 
-Klasa podataka Prosl\dj{}ivanje podataka je centralna klasa podataka za eksternu razmenu podataka. Kroz nju na\v{s} sistem realizuje funkcionalnost  prosle\dj{}ivanja podataka spoljnom nadle\v{z}nom  zdravstvenom sistemu.
+Klasa podataka Prosle\dj{}ivanje podataka je centralna klasa podataka za eksternu razmenu podataka. Kroz nju na\v{s} sistem realizuje funkcionalnost  prosle\dj{}ivanja podataka spoljnom nadle\v{z}nom  zdravstvenom sistemu.
 \\~\\
 
 \noindent Podaci o prosle\dj{}ivanju podataka
