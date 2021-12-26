@@ -335,16 +335,18 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \item \textbf{Osnovni tok:}
     \begin{enumerate}
         \item Sistem pristupa podacima o vakcinisanima. Sistem ovu operaciju izvodi automatski, svakog dana u podne.
-        \item Sistem predla\v{z}e vreme i mesto vakcinacije drugom dozom vakcine koja je već primljena prvi put.
-        \item Osoba razmatra o vremenu i mestu vakcinacije.
+        \item Sistem šalje SMS poruku koja sadrži termin vakcinacije drugom dozom vakcine koja je već primljena prvi put.
+        \item Osoba razmatra o terminu vakcinacije.
         \begin{itemize}
-            \item Osoba prihvata vreme i mesto vakcinacije.
-            \item Osoba ne prihvata vreme i mesto vakcinacije.
+            \item Osoba prihvata termin vakcinacije
+            \newline (u SMS-u, opcija 1).
+            \item Osoba ne prihvata termin vakcinacije
+            \newline (u SMS-u, opcija 2).
         \end{itemize}
         \item 
         \begin{itemize}
-            \item Ukoliko osoba prihvati vreme i mesto vakcinacije, izvršavanje se nastavlja u koraku 5 osnovnog toka.
-            \item Ukoliko osoba ne prihvati vreme i mesto vakcinacije, izvršava se podtok P1.
+            \item Ukoliko osoba prihvati termin vakcinacije, izvršavanje se nastavlja u koraku 5 osnovnog toka.
+            \item Ukoliko osoba ne prihvati termin vakcinacije, izvršava se podtok P1.
         \end{itemize}
         \item Sistem a\v{z}urira podatke o zakazanim terminima.
         \item Sistem obave\v{s}tava osobu da je termin zakazan.
@@ -354,14 +356,14 @@ Ovo poglavlje sačinjeno je od formalno predstavljenih slučajeva upotrebe poče
     \begin{itemize}
         \item[P1.] Osoba ne prihvata termin vakcinacije. 
         \begin{enumerate}
-        \item Sistem šalje formular osobi kako bi odabrala vreme i mesto vakcinacije
-        \item Osoba upisuje vreme i mesto vakcinacije.
+        \item Sistem šalje SMS osobi kako bi odabrala termin vakcinacije, u formi liste opcija, gde svaka opcija označava termin vakcinacije. 
+        \item Osoba bira termin vakcinacije, u vidu povratnog SMS-a, koji sadrži broj opcije.
         \item Sistem validira unete podatke.
         \end{enumerate}
     \end{itemize}
     \item \textbf{Dodatne informacije:}
     \begin{itemize}
-        \item Sistem treba ponuditi mogućnosti osobi koja želi da popuni formular, u vidu spiska lokacija Kovid-ambulanti i spiska dostupnih termina.
+        \item Sistem treba ponuditi mogućnosti osobi koja želi da popuni formular, spiska dostupnih termina.
     \end{itemize}
 \end{itemize}
 
@@ -647,19 +649,17 @@ U ovom poglavlju se bavimo formalizacijom procesa testiranja registrovanih osoba
 
 \subsection{Kućna izolacija}
 U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od evidentiranja, preko praćenja izolacije, do prestanka izolacije.
-\subsubsection{Slučaj upotrebe: Evidentiranje zaražene osobe}
+\subsubsection{Slučaj upotrebe: Evidentiranje slučaja kućne izolacije}
 \begin{itemize}
     \item \textbf{Kratak opis:} Medicinski radnik na osnovu pozitivnog PCR testa šalje osobi instrukcije o izolaciji i ažurira informacioni sistem kako bi se zaražene osobe mogle pratiti u narednom periodu.
     \item \textbf{Učesnici:}
         \begin{itemize}
             \item Medicinski radnik
         \end{itemize}
-    \item \textbf{Preduslovi:} Sistem je aktivan. Medicinski radnik ima dozvolu za menjanje podataka o zaraženim licima.
+    \item \textbf{Preduslovi:} Sistem je aktivan. Medicinski radnik je ulogovan i ima dozvolu za menjanje podataka o zaraženim licima.
     \item \textbf{Postuslovi:} Sistem obaveštava radnika o uspešnosti izmena.
     \item \textbf{Osnovni tok:}
     \begin{enumerate}
-        \item Medicinski radnik otvara stranicu za logovanje i unosi svoje podatke.
-        \item Sistem dozvoljava radniku da dođe do podataka o zaraženim licima.
         \item Medicinski radnik unosi podatke o zaraženom i dužinu trajanja izolacije.
         \item Medicinski radnik potvrđuje unos.
         \item Sistem prikazuje povratnu informaciju medicinskom radniku.
@@ -667,7 +667,7 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
     \end{enumerate}
     \item\textbf{Alternativni tokovi:}
         \begin{itemize}
-            \item [A1.] \textbf{Neuspešan unos podataka.} Ukoliko u koraku 5 glavnog toka sistem obavesti radnika da podaci o zaraženom nisu validni, baza podataka o zaraženima ostaje neizmenjena i proces se završava.
+            \item [A1.] \textbf{Neuspešan unos podataka.} Ukoliko u koraku 3 glavnog toka sistem obavesti radnika da podaci o zaraženom nisu validni, baza podataka o zaraženima ostaje neizmenjena i proces se završava.
         \end{itemize}
 \end{itemize}
 \subsubsection{Slučaj upotrebe: Provera poštovanja izolacije}
@@ -678,13 +678,10 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
             \item Zaražena osoba
             \item Operater
         \end{itemize}
-    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba poseduje mobilni ili fiksni telefon.
+    \item \textbf{Preduslovi:} Sistem je aktivan. Operater je ulogovan. Osoba poseduje mobilni ili fiksni telefon.
     \item \textbf{Postuslovi:} Operater dobija tačne informacije o ponašanju osobe koja treba da je u izolaciji.
     \item \textbf{Osnovni tok:}
         \begin{enumerate}
-            \item Operater otvara stranicu za logovanje.
-            \item Operater unosi svoje podatke i potvrđuje unos.
-            \item Sistem odobrava pristup.
             \item Operater zahteva podatke o zaraženima.
             \item Sistem prikazuje tabelu sa zaraženim osobama.
             \item Operater nasumično bira broj telefona osobe koja treba da bude u kućnoj izolaciji.
@@ -692,7 +689,7 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
         \end{enumerate}
     \item\textbf{Alternativni tokovi:}
         \begin{itemize}
-            \item[A1.] \textbf{Operater nema dozvolu za pristup.} Ukoliko u koraku 3 sistem ne odobri pristup, proces se završava.
+            \item[A1.] \textbf{Operater nema dozvolu za pristup.} Ukoliko u koraku 2 sistem ne odobri pristup i ne prikaže, proces se završava.
         \end{itemize}
     \item \textbf{Dodatne informacije:}
         \begin{itemize}
@@ -707,13 +704,10 @@ U ovom poglavlju bavimo se implementacijom procesa kućne izolacije, počev od e
         \begin{itemize}
             \item Operater
         \end{itemize}
-    \item \textbf{Preduslovi:} Sistem je aktivan. Operater je autorizovan za pristup podacima o zaraženima.
+    \item \textbf{Preduslovi:} Sistem je aktivan. Operater je ulogovan i ima pristup podacima o zaraženima.
     \item \textbf{Postuslovi:} Operater je obavestio osobu o ponovnom testiranju.
     \item \textbf{Osnovni tok:}
         \begin{enumerate}
-            \item Operater otvara stranicu za logovanje.
-            \item Operater unosi svoje podatke i potvrđuje unos.
-            \item Sistem odobrava pristup.
             \item Operater zahteva podatke o zaraženima.
             \item Sistem prikazuje tražene podatke.
             \item Operater bira osobu kojoj je tog dana istekla kućna izolacija.
