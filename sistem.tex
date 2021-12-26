@@ -1,4 +1,4 @@
-\documentclass[titlepage]{article}
+\documentclass[a4paper]{article}
 \usepackage{xcolor}
 \usepackage[english, croatian]{babel}
 
@@ -21,15 +21,26 @@ Irena Vasiljević 1018/2021
 \begin{document}
 
 \maketitle
+
+\newpage
+
 \tableofcontents
 
 \newpage
 
 \section{Uvod}
 
+Ovaj rad predstavlja projekat iz predmeta Informacioni sistemi na master studijama Matematičkog fakulteta. Rad opisuje informacioni sistem kovid centra. U skladu sa trenutnom situacijom u našoj zemlji, smatramo da je izuzetno važno da ovakav sistem postoji i da omogućava efikasno i pouzdano funkcionisanje jednog kovid centra. \newline
+\indent Dakle, ideja je da se sistem koristi prilikom rada jednog kovid centra. Komunikacija sa spoljnim zdravstvenim sistemom se vrši putem periodičnog slanja odgovarajućih podataka, a komunikacija se takođe dešava prilikom dobavljanja zaliha vakcina i testova. U okviru analize sistema su prepoznati osnovni procesi i učesnici u sistemu. \newline
+\indent Za izradu dijagrama u okviru projekta koristili smo alate Visual Paradigm i Modelio.
+
 \section{Analiza sistema}
-Informacioni sistem Kovid centar svojim funkcionalnostima obezbe\dj{}uje sigurno i jednostavno sprovo\dj{}enje procedura neophodnih za za\v{s}titu od virusa COVID-19. \newline
-\noindent Pored manipulacije podacima o testiranim i vakcinisanim pacijentima, informacioni sistem mehanizmima registracije i prijave pacijenatima pru\v{z}a mogu\'{c}nost automatizacije dodeljivanja termina vakcinacije i obave\v{s}tavanje o istim. Omogu\'{c}eno je  izdavanje i validacija kovid propusnice koja predstavlja garanciju da vlasnik ne predstavlja pretnju za suzbijanje virusa. Bitan deo predstavlja saradnja sa ministarstvom zdravlja, koja uklju\v{c}uje bezbedno dostavljanje relevantnih podataka ministarstvu. Komunikacija de\v{z}urnog medicinskog radnika sa pacijentom realizovana je posredstvom Kol centra, gde se pacijenti mogu detaljinije informisati o virusu ili  posavetovati u slu\v{c}aju prisustva nekih tegoba, nakon čega informacije o simptomima i tegobama bivaju čuvane u sistemu i biće dostupne ministarstvu zdravlja za dalje razmatranje.\newline
+Informacioni sistem Kovid centar svojim funkcionalnostima obezbeđuje sigurno i jednostavno sprovođenje procedura neophodnih za zaštitu od virusa COVID-19. \newline
+\indent Pre svega, sistem koristi medicinsko osoblje prilikom prijavljivanja osoba za primanje vakcine, evidentiranja primljene doze, evidentiranja urađenog testa kao i praćenja poštovanja kućne izolacije. Pored toga, sistem omogućava da se podaci iz baze prikupe i proslede širem zdravstvenom sistemu u okviru kog radi kovid centar, kao i da se nabave nove zalihe vakcina i testova. Pri tom, smatramo da je medicinskom osoblju omogućeno korišćenje sistema prilikom zaposlenja.\newline
+\indent Informacioni sistem se takođe koristi od strane osoba koje žele da koriste usluge vakcinisanja i testiranja. Sistem omogućava registraciju i online prijavu za vakcinu, kao i dobijanje kovid propusnice elektronskim putem. \newline
+\indent Važan deo u borbi sa virusom je i kontrolisanje kovid propusnica, pa tako naš sistem omogućava i brzu proveru validnosti propusnice od strane bilo koga ko je u mogućnosti da očita QR kod sa kovid propusnice. \newline
+\indent Još jedna upotreba informacionog se ogleda prilikom komunikacije putem Kol centra, koji omogućava osobama da se u razgovoru sa stručnim licem informišu o virusu. \newline
+\indent Naravno, da bi sistem ispravno funkcionisao, neophodna je administracija, pa je i tako i ona obrađena u narednom poglavlju. \newline
 \indent Na Slici \ref{slk:slucajevi} nalazi se dijagram koji prikazuje učesnike sistema i njihove poslove. Slika \ref{slk:kontekst} prikazuje dijagram interakcije sistema sa svetom, a na Slici \ref{slk:dtp} se nalazi dijagram koji opisuje glavne procese i tok podataka u sistemu.
 
 \begin{figure}[H]
@@ -41,14 +52,14 @@ Informacioni sistem Kovid centar svojim funkcionalnostima obezbe\dj{}uje sigurno
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{Dijagram_konteksta}
+\includegraphics[scale=0.9]{Dijagram_konteksta}
 \caption{Dijagram konteksta}
 \label{slk:kontekst}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{Dijagram_toka_podataka}
+\includegraphics[scale=1.2]{DTP_dijagram}
 \caption{Dijagram toka podataka nivoa 0}
 \label{slk:dtp}
 \end{figure}
@@ -495,15 +506,10 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
         \begin{itemize}
             \item Registrovana osoba - želi brzo da dobije kovid propusnicu uz minimalan broj koraka
         \end{itemize}
-    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba je registrovana i ima pristup internetu.
+    \item \textbf{Preduslovi:} Sistem je aktivan. Osoba ima pristup internetu i prijavljena je na sistem.
     \item \textbf{Postuslovi:} Sistem je izdao propusnicu registrovanoj osobi.
     \item \textbf{Osnovni tok:}
         \begin{enumerate}
-            \item Osoba otvara stranicu za prijavu.
-            \item Sistem prikazuje formular za prijavu.
-            \item Osoba unosi odgovarajuće podatke.
-            \item Osoba potvrđuje unos.
-            \item Sistem vrši validaciju podataka.
             \item Osoba otvara stranicu za podnošenje zahteva za izdavanje propusnice.
             \item Sistem prikazuje tri moguće opcije:
                 \begin{itemize}
@@ -523,8 +529,7 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
     %Alternativne tokove nazivati sa A1, A2, ...
     \item \textbf{Alternativni tokovi:}
         \begin{itemize}
-            \item[A1.] \textbf{Neuspešno prijavljivanje.} Ukoliko u koraku 5 osnovnog toka sistem naiđe na neispravne podatke, obaveštava osobu i zahteva ponovni unos podataka. Proces se nastavlja u koraku 3 osnovnog toka.
-            \item[A2.] \textbf{Uslovi za izdavanje nisu zadovoljeni.} Ukoliko u koraku 9 osnovnog toga sistem ustanovi da nisu zadovoljeni odgovarajući uslovi za izdavanje propusnice, obaveštava osobu. Proces se završava.
+            \item[A1.] \textbf{Uslovi za izdavanje nisu zadovoljeni.} Ukoliko u koraku 9 osnovnog toga sistem ustanovi da nisu zadovoljeni odgovarajući uslovi za izdavanje propusnice, obaveštava osobu. Proces se završava.
         \end{itemize}
     
     %Ako postoje, specijalne zahteve navesti ovde
@@ -545,7 +550,7 @@ U ovom poglavlju se bavimo formalizacijom rada sa kovid propusnicama. U nastavku
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.25]{Izdavanje_propusnice}
+\includegraphics[scale=0.35]{Izdavanje_propusnice}
 \caption{Dijagram aktivnosti - Izdavanje kovid propusnice}
 \label{slk:izdavanje}
 \end{figure}
@@ -986,48 +991,46 @@ Podaci o testovima:
 
 \section{Softverska arhitektura}
 
-Informacioni sistem za "Kovid sistem" sačinjen je od sledeća četiri podsistema:
+Informacioni sistem kovid centra sačinjen je od tri glavna podsistema:
 \begin{enumerate}
-    \item \textbf{Kovid ambulanta} - sadrži komponente koje omogućavaju unos i praćenje informacija u sistemu.
+    \item \textbf{Medicinsko osoblje} - omogućava korišćenje informacionog sistema od strane osoblja i koristi usluge sledećih komponenti:
+    \begin{itemize}
+        \item Regulisanje zaliha - omogućava slanje zahteva i prijem novih zaliha.
+        \item Prosleđivanje statistike - omogućava prikupljanje i slanje podataka zdravstvenom sistemu.
+        \item Unos podataka - omogućava evidentiranje pruženih usluga korisnicima.
+        \item Autentikacija - omogućava pristup sistemu.
+    \end{itemize}
+    \item \textbf{Pacijent} - omogućava korišćenje informacionog sistema od strane osoba koje koriste usluge centra i koristi sledeće komponente:
 	\begin{itemize}
-        	\item Evidentiranje - omogućava unos podataka od strane medicinskog radnika.
-        	\item Autentikacija - omogućava pristup sistemu i korišćenje njegovih usluga.
-    	\end{itemize}
-    \item \textbf{Ministarstvo zdravlja} - sadrži komponente koje omogućavaju korišćenje sistema licima iz ministarstva.
+	        \item Registracija - omogućava registrovanje novog korisnika.
+        	\item Autentikacija - omogućava pristup sistemu.
+        	\item Izdavanje i validacija kovid propusnice - omogućava korisniku da dobije kovid propusnicu.
+    \end{itemize}
+    \item \textbf{Kontrola kovid propusnice} - omogućava proveru ispravnosti kovid propusnice i koristi komponentu:
 	\begin{itemize}
-        	\item Informisanje - omogućava preuzimanje statistike iz podataka.
-        	\item Autentikacija - omogućava pristup sistemu i bezbedno korišćenje njegovih funkcionalnosti licima iz ministarstva.
-    	\end{itemize}
-    \item \textbf{Nalozi} - sadrži komponente koje omogućavaju upravljanje nalozima svim korisnicima.
-	\begin{itemize}
-        	\item Korisnici - osobe - omogućava regulisanje registracije i prijave osobe i davanje termina korisniku.
-        	\item Korisnici - medicinsko osoblje - omogućava upravljanje nalozima medicinskog osoblja koje učestvuju u informacionom sistemu.
-        	\item Korisnici - ministarstvo zdravlja - omogućava upravljanje nalozima lica iz ministarstva zdravlja koje koriste informacioni sistem.
-    	\end{itemize}
-     \item \textbf{Podaci} - sadrži komponente koje omogućavaju upravljanje podacima iz baze podataka.
-	\begin{itemize}
-        	\item Statistika - pruža dostupnost podataka koji se po potrebi mogu preuzeti.
-        	\item Kovid propusnice - omogućava izdavanje i validaciju kovid propusnice.
-    	\end{itemize}
+        	\item Izdavanje i validacija kovid propusnice - omogućava kontroloru proveru validnosti propusnice.
+    \end{itemize}
 \end{enumerate}
 
-Na Slici \ref{slk:komponente} prikazan je dijagram komponenti arhitekture sistema.
+\indent Takođe, nabrojane komponente koriste komponentu Baza podataka putem odgovarajućeg interfejsa. Na Slici \ref{slk:komponente} prikazan je dijagram komponenti arhitekture sistema.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{Dijagram_komponenti_NOVI1}
+\includegraphics[scale=0.4]{Dijagram_komponenti}
 \caption{Dijagram komponenti - softverska arhitektura}
 \label{slk:komponente}
 \end{figure}
 
-Informacioni sistem je podeljen na server baze podataka i aplikacioni server koji komuniciraju pomoću TCP/IP protokola. Na serveru baze podataka se nalazi MySQL okruženje i baza sadrži tri sheme: Korisnici, Statistika i Ambulanta. Na aplikacionom serveru se koristi JSP server Tomcat 8 Catalina Servlet 3.1 i na njemu se izvršava aplikacija kovid\_centar.war. Aplikacija, između ostalog, implementira komponentu Evidentiranje. Konfiguracioni fajl aplikacije je web.xml. Deo aplikacije korisnicki\_servis1.jar implementira komponentu Korisnik - medicinsko osoblje, deo korisnicki\_servis2.jar implementira komponentu Korisnik - osoba, a deo korisnicki\_servis3.jar implementira komponentu Korisnik - ministarstvo. Aplikacija koristi biblioteku web\_tool\_lib.jar. Na Slici \ref{slk:isporucivanje} je prikazan dijagram isporučivanja sistema.
+Informacioni sistem je podeljen na server baze podataka i aplikacioni server koji komuniciraju pomoću TCP/IP protokola. Na serveru baze podataka se nalazi MySQL okruženje i baza podataka. Na aplikacionom serveru se koristi JSP server Tomcat 8 Catalina Servlet 3.1 i na njemu se izvršava aplikacija kovid\_centar.war. Konfiguracioni fajl aplikacije je web.xml. Deo medicinsko\_osoblje.jar implementira komponentu Korisnik - medicinsko osoblje, deo pacijent.jar implementira komponentu Korisnik - pacijent, a deo kontrola\_kovid\_propusnice.jar implementira komponentu Kontrola kovid propusnice. Aplikacija koristi biblioteku web\_tool\_lib.jar. Na Slici \ref{slk:isporucivanje} je prikazan dijagram isporučivanja sistema.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.35]{Dijagram_isporucivanjaNOVI}
+\includegraphics[scale=0.33]{Dijagram_isporucivanja}
 \caption{Dijagram isporucivanja - softverska arhitektura}
 \label{slk:isporucivanje}
 \end{figure}
+
+\newpage
 
 \section{Korisni\v{c}ki interfejs}
 
@@ -1037,35 +1040,30 @@ U nastavku se nalaze skice korisni\v{c}kog interfejsa:
 \centering
 \includegraphics[scale=0.23]{pocetna}
 \caption{Korisni\v{c}ki interfejs - početna strana}
-\label{slk:komponente}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.43]{prijava}
 \caption{Korisni\v{c}ki interfejs - strana za prijavljivanje medicinskog osoblja}
-\label{slk:komponente}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.43]{evidencija}
 \caption{Korisni\v{c}ki interfejs - strana za evidenciju}
-\label{slk:komponente}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.43]{upistesta}
 \caption{Korisni\v{c}ki interfejs - strana za upis rezultata testa}
-\label{slk:komponente}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.43]{upisvakcine}
 \caption{Korisni\v{c}ki interfejs - strana za upis rezultata vakcine}
-\label{slk:komponente}
 \end{figure}
 
 
@@ -1073,14 +1071,12 @@ U nastavku se nalaze skice korisni\v{c}kog interfejsa:
 \centering
 \includegraphics[scale=0.23]{logovanje}
 \caption{Korisni\v{c}ki interfejs - strana za prijavljivanje osobe}
-\label{slk:komponente}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.23]{opcije}
 \caption{Korisni\v{c}ki interfejs - strana za odabir usluge}
-\label{slk:komponente}
 \end{figure}
 
 \end{document}
